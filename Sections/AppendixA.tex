@@ -12,7 +12,7 @@
 			$$ \frac{1}{i} = \frac{1}{i}\frac{i}{i} = \frac{i}{i^2} = \frac{i}{-1} = -i $$
 		\end{enumerate}
 		
-	\item [A.2] For this exercise, we write $w = a+ib = Ae^{i\theta}$ and $z = c+id = Ce^{i\phi}$.
+	\item [A.2] For this exercise, we write $w = a+ib$ and $z = c+id$.
 	The first four of these will be done by direct calculation from the definitions.
 	%This means $a = A\cos(\theta)$, $b = A\sin(\theta)$, $c = C\cos(\phi)$, and $d = C\sin(\phi)$.
 		\begin{enumerate}[(a)]
@@ -20,21 +20,32 @@
 			
 			\item $\conj{w \cdot z} = \conj{(a=ib)(c+id)} = \conj{ac-bd+i(ad+bc)} = ac-bd-i(ad+bc) = (a-ib)(c-id) = (\conj{a+ib})(\conj{c+id}) = \conj{w} \cdot \conj{z}$
 			
-			\item $|wz| = |Ae^{i\theta}Ce^{i\phi}| = |ACe^{i(\theta+\phi)}| = AC = |Ae^{i\theta}||Ce^{i\phi}| = |w||z|$
+			\item Using part (d) and part (b). \\
+			$|wz| = \sqrt{wz \conj{wz}} = \sqrt{w \cdot z \cdot \conj{w} \cdot \conj{z}} = \sqrt{w\conj{w}z\conj{z}} = \sqrt{w\conj{w}}\sqrt{z\conj{z}} = |w||z|$
 			
 			\item $z\conj{z} = (c+id)(c-id) = c^2+d^2 = \sqrt{c^2+d^2}^2 = |c+id|^2 = |z|^2$
 			
 			\item This inequality is an equality for $n=1$.
-			Since addition of complex numbers is associative, we can always choose to group the addition into two groups.
-			Therefore, if we show that this inequality holds for $n=2$, we have shown that it holds for all $n$.
+			We will prove $n \geq 2$ by induction.
+			The statement holds for $n=2$.
 			\begin{equation*} \begin{split}
 				|z_1+z_2|^2 & = (z_1+z_2)\conj{(z_1+z_2)} \\
 							& = (z_1+z_2)(\conj{z_1}+\conj{z_2}) \\
 							& = z_1\conj{z_1} + z_2\conj{z_2}+z_1\conj{z_2}+z_2\conj{z_1} \\
 							& \leq z_1\conj{z_1} + z_2\conj{z_2} + 2\sqrt{z_1\conj{z_1}z_2\conj{z_2}} \\
+							& = |z_1|^2 + |z_2|^2 + 2|z_1||z_2| \\
 							& = (|z_1|+|z_2|)^2
 			\end{split} \end{equation*}
-			Thus $|z_1+z_2| \leq |z_1|+|z_2|$
+			Thus $|z_1+z_2| \leq |z_1|+|z_2|$.
+			Now assume $N > 2$ and that the statement holds for all $n < N$.
+			Since addition of complex numbers is associative (and using the base case above), we can conclude.
+			\begin{equation*} \begin{split}
+				|z_1 + z_2 + \cdots +z_N| & \leq |z_1+z_2+ \cdots +z_{N-1}|+|z_N| \\
+										  & \leq |z_1|+|z_2|+\cdots+|z_{N-1}|+|z_N|
+			\end{split} \end{equation*}
+			Therefore, by the strong principle of mathematical induction,
+			$$ |z_1+z_2+\cdots+z_n|\leq|z_1|+|z_2|+\cdots+|z_n| $$
+			is true for all $n$.
 			
 			\item Since $|z|^2 = x^2+y^2$, we can conclude that $|x| \leq |z|$ and $|y| \leq |z|$. Let $m = \max(|x|,|y|)$. Then $m \leq |z|$ (because both $|x|$ and $|y|$ are) and
 			$$ |z|^2 = |x|^2+|y|^2 \leq m^2+m^2 = 2m^2 \Rightarrow |z| \leq \sqrt{2}m $$
