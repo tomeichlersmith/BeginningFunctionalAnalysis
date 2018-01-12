@@ -57,6 +57,44 @@
 		\end{enumerate}
 	
 	\item [A.3] 
+		\begin{enumerate}[(a)]
+			\item Here we set $w = a+ib$ and $z = c+id$ and use Euler's formula for $e^{i\theta}$.
+			Then we can directly calculate the desired equality.
+			\begin{equation*} \begin{split}
+				e^{w+z} & = e^{a+c+i(b+d)} \\
+						& = e^{a+c}(\cos(b+d)+i\sin(b+d)) \\
+						& = e^ae^c(\cos(b)\cos(d)-\sin(b)\sin(d)+i(\cos(b)\sin(d)+\sin(b)\cos(d))) \\
+						& = e^ae^c(\cos(b)+i\sin(b))(\cos(d)+i\sin(d)) \\
+						& = e^a(\cos(b)+i\sin(b))e^c(\cos(d)+i\sin(d)) \\
+						& = e^{a+ib}e^{c+id} \\
+						& = e^we^z \\
+			\end{split} \end{equation*}
+			Thus $e^{w+z}=e^we^z$ for any complex numbers $w$ and $z$.
+			
+			\item We can prove this by contradiction.
+			Assume there exists a complex number $z = a+ib$ such that $e^z=0$.
+			Then
+			$$ e^z = e^a(\cos(b)+i\sin(b)) = 0 $$
+			Since $a$ is a real number, $e^a \neq 0$, so
+			$$ \cos(b)+i\sin(b) = 0 \Rightarrow \cos(b) = 0 \text{ and } \sin(b) = 0 $$
+			But there does not exist a real number $b$ such that both $\cos(b)$ and $\sin(b)$ are equal to zero.
+			Therefore, $e^z$ cannot equal zero.
+			
+			\item Using Euler's formula, we can prove this with direction calculation.
+			\begin{equation*}
+			|e^{i\theta}| = |\cos{\theta}+i\sin{\theta}| = \sqrt{ \cos^2(\theta)+\sin^2(\theta) } = \sqrt{1} = 1
+			\end{equation*}
+			Thus $|e^{i\theta}| = 1$.
+			
+			\item Using Euler's formula and exponent rules, we can prove this statement for any real number $n$ by direct calculation.
+			$$ (\cos(\theta)+i\sin(\theta))^n = (e^{i\theta})^n = e^{in\theta} = \cos(n\theta)+i\sin(n\theta) $$
+			
+			\item $e^z = e^w$ does not imply that $z = w$ (like it does for real numbers).
+			Counter-example: Let $z = a+ib$ and $w = a+i(b+2\pi)$.
+			Clearly, $z \neq w$, but
+			$$ e^w = e^a(\cos(b+2\pi)+i\sin(b+2\pi)) = e^a(\cos(b)+i\sin(b)) = e^z $$
+			Therefore, the implication does not hold.
+		\end{enumerate}
 \end{itemize}
 
 \end{document}
