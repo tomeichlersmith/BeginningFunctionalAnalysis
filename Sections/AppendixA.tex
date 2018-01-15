@@ -109,7 +109,18 @@
 	But
 	$$ \Re(z) \cdot \Re(w) = 0 \cdot 0 = 0 \neq -1 $$
 	
-	\item [A.6]
+	\item [A.6] An ordered field must satisfy two properties for all elements $a$, $b$, and $c$ in the field.
+	(In addition to the axioms of a linear order and a field.)
+	\begin{enumerate}
+		\item If $a \leq b$ then $a+c \leq b+c$.
+		\item If $0 \leq a$ and $0 \leq b$, then $0 \leq ab$.
+	\end{enumerate}
+	The second property leads directly to all squares being positive.
+	More specifically, if $a$ is a member of an ordered field, then $a < 0$ or $a \geq 0$.
+	If $a \geq 0$, then it follows directly from the second property that $a^2 \geq 0$.
+	If $a < 0$, then $-a > 0$ and $(-a)^2 = (-1)^2a^2 = a^2 > 0$.
+	Thus $a^2 \geq 0$ for any $a$ in the ordered field.
+	But the complex numbers have $i$ as an element and $i^2 = -1 < 0$, so the complex numbers cannot be ordered to give an ordered field.
 \end{itemize}
 
 \end{document}
