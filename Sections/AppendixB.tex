@@ -1,0 +1,54 @@
+\documentclass[../../Solutions.tex]{subfiles}
+ 
+\begin{document}
+
+\begin{itemize}
+	\item [B.1] De Morgan's Laws can be proven by following the definitions of the sets.
+	Let $J$ be an the index set for a collection of sets $\{A_i\}$.
+	\begin{equation*} \begin{split}
+		\left( \bigcup_{i \in J} A_i \right)^C & = \left\{ x : x \in A_i \text{ for some } i \in J \right\}^C \\
+			& = \left\{ x : x \not\in A_i \text{ for all } i \in J \right\} \\
+			& = \left\{ x : x \in A_i^C \text{ for all } i \in J \right\} \\
+			& = \bigcap_{i \in J} A_i^C
+	\end{split} \end{equation*}
+	\begin{equation*} \begin{split}
+	\left( \bigcap_{i \in J} A_i \right)^C & = \left\{ x : x \in A_i \text{ for all } i \in J \right\}^C \\
+	& = \left\{ x : x \not\in A_i \text{ for some } i \in J \right\} \\
+	& = \left\{ x : x \in A_i^C \text{ for some } i \in J \right\} \\
+	& = \bigcup_{i \in J} A_i^C
+	\end{split} \end{equation*}
+	
+	\item [B.2] Define $h:\mathbb{Q} \to \mathbb{N}$ as
+	$$ h\left(\frac{a}{b}\right) = \begin{cases}
+		2^a3^b & a \geq 0 \\
+		2^{|a|}3^b5 & a < 0
+	\end{cases} $$
+	where $a \in \mathbb{Z}$ and $b \in \mathbb{N}$ are used to represent a general element in $\mathbb{Q}$ in its lowest form.
+	This function is injective because each element in $\mathbb{Q}$ maps to a unique positive integer (due to prime factorizations).
+	Therefore $\mathbb{Q}$ is countable because it has an injective map into $\mathbb{N}$.
+	
+	\item [B.3] Assume that $\{ A_i : i \in J \}$ is a collection of countable sets $A_i$ with a countable index set $J$.
+	Assume that the $A_i$ are disjoint.
+	(If not, then define $A_1' = A_1$, $A_2' = A_2 \setminus A_1'$, \dots, $A_n' = A_n \setminus A_{n-1}'$.
+	Then $\bigcup_{i\in J}A_i' = \bigcup_{i\in J}A_i$ and the $A_i'$ are disjoint.)
+	Label each element such that $a_{ij}$ is the $j$th element in $A_i$.
+	(This enumeration can be done because each individual set is countable by assumption.)
+	Then define $g:\bigcup_{i\in J} A_i \to \mathbb{N}$ by
+	$$ g(a_{ij}) = 2^i3^j $$
+	which makes $g$ injective.
+	We have found an injective map from $\bigcup_{i\in J} A_i$ to $\mathbb{N}$;
+	therefore, $\bigcup_{i\in J} A_i$ is countable.
+	
+	\item [B.4] Assume that $\mathbb{R}$ is countable.
+	Then every subset is countable, specifically, $[0,1]$.
+	Assume $f:[0,1] \to \mathbb{N}$ is the injection between $[0,1]$ and $\mathbb{N}$.
+	Define $h:\mathbb{Z}_{10} \to \mathbb{Z}_{10}$ by $h(k) = (k+1)\mod 10$.
+	Let $a_i$ be the $i$th decimal place of $f^{-1}(i)$.
+	Then the real number
+	$$ 0.h(a_1)h(a_2)h(a_3)\dots $$
+	is an element of $[0,1]$ and cannot be equal to any member of the domain of $f$ by construction.
+	Therefore $f$ is not an injection and we have found a contradiction.
+	Thus $\mathbb{R}$ is not countable.
+\end{itemize}
+
+\end{document}
