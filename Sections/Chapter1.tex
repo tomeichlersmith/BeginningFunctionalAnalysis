@@ -5,7 +5,34 @@
 \begin{itemize}
 	\item [1.1.1]
 		\begin{enumerate}[(a)]
-			\item We will verify each norm by showing that it satisfies each of the required conditions. First, $\norm{\cdot}_1$ is
+			\item We will verify each norm by showing that it satisfies each of the required conditions using the numbering scheme in the text. These verifications are mostly simple algebra and small logical steps.
+				Let $u,v \in \R^2$ and $\lambda \in \R$. \\
+				Let $\norm{\cdot}_1:\R^2 \to \R$ be defined as $\norm{u}_1 = |u_1|+|u_2|$.
+				\begin{enumerate}[(i)]
+					\item $\norm{u}_1 = |u_1|+|u_2| \geq 0$ because the sum of two positive numbers is always positive.
+					\item $\norm{u}_1 = 0 \iff |u_1|+|u_2| = 0 \iff u_1 = 0 \text{ and } u_2 = 0 \iff u = 0$
+					\item $\norm{\lambda u}_1 = |\lambda u_1|+|\lambda u_2| = |\lambda|(|u_1|+|u_2|) = |\lambda|\norm{u}_1$
+					\item $\norm{u+v}_1 = |u_1+v_1|+|u_2+v_2| \leq |u_1|+|v_1|+|u_2|+|v_2| = \norm{u}_1+\norm{v}_1$
+				\end{enumerate}
+				Let $\norm{\cdot}_2:\R^2 \to \R$ be defined as $\norm{u}_2 = \sqrt{u_1^2+u_2^2}$.
+				\begin{enumerate}[(i)]
+					\item $\norm{u}_2 = \sqrt{u_1^2+u_2^2} \geq 0$ because the sum of two positive numbers is always positive.
+					\item $\norm{u}_2 = 0 \iff \sqrt{u_1^2+u_2^2} = 0 \iff u_1^2+u_2^2 = 0 \iff u_1 = 0 \text{ and } u_2 = 0 \iff u = 0$
+					\item $\norm{\lambda u}_2 = \sqrt{(\lambda u_1)^2+(\lambda u_2)^2} = \sqrt{\lambda^2(u_1^2+u_2^2)} = |\lambda|\sqrt{u_1^2+u_2^2} = |\lambda|\norm{u}_2$
+					\item $\norm{u+v}_2 = \sqrt{(u_1+v_1)^2+(u_2+v_2)^2} = \sqrt{u_1^2+v_1^2+2u_1v_1+u_2^2+v_2^2+2u_2v_2} \leq \sqrt{u_1^2+u_2^2}+\sqrt{v_1^2+v_2^2} = \norm{u}_2+\norm{v}_2$
+				\end{enumerate}
+				Let $\norm{\cdot}_\infty:\R^2 \to \R$ be defined as $\norm{u}_\infty = \max(|u_1|,|u_2|)$.
+				\begin{enumerate}[(i)]
+					\item $\norm{u}_\infty \geq 0$ because both $|u_1| \geq 0$ and $|u_2| \geq 0$.
+					\item $\norm{u}_\infty = 0 \iff u_1 = 0 \text{ and } u_2 = 0 \iff u = 0$
+					\item $\norm{\lambda u}_\infty = \max(|\lambda u_1|,|\lambda u_2|) = |\lambda|\max(|u_1|,|u_2|) = |\lambda|\norm{u}_\infty$
+					\item $\norm{u+v}_\infty = \max(|u_1+v_1|,|u_2+v_2|) \leq \max(|u_1|+|v_1|,|u_2|+|v_2|) \leq \max(|u_1|,|u_2|)+\max(|v_1|,|v_2|) = \norm{u}_\infty+\norm{v}_\infty$
+				\end{enumerate}
+			\item We obtain a metric $d$ from a norm $\norm{\cdot}$ by $d(u,v) = \norm{u-v}$, so
+				$$ d_1((1,1),(2,3)) = \norm{(1,1)-(2,3)}_1 = |1-2|+|1-3| = 1+2 = 3 $$
+				$$ d_2((1,1),(2,3)) = \norm{(1,1)-(2,3)}_2 = \sqrt{(1-2)^2+(1-3)^2} = \sqrt{1+4} = \sqrt{5} $$
+				$$ d_\infty((1,1),(2,3)) = \norm{(1,1)-(2,3)}_\infty = \max(|1-2|,|1-3|) = \max(1,2) = 2 $$
+			\item 
 		\end{enumerate}
 \end{itemize}
 
