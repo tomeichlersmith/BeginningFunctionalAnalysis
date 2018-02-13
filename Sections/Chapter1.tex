@@ -37,8 +37,26 @@
 	
 	\item [1.1.2]
 		\begin{enumerate}[(a)]
-			\item 
+			\item Let $\norm{\cdot}:\R^n \to \R$ be defined as $\norm{v} = (1/3)\norm{v}_1+(2/3)\norm{v}_\infty$.
+				Let $x,y \in \R^n$ and $\lambda \in \R$.
+				In each case, we will use the facts that $\norm{\cdot}_1$ and $\norm{\cdot}_\infty$ are norms.
+				
+				\begin{enumerate}[(i)]
+					\item $\norm{x} = (1/3)\norm{x}_1+(2/3)\norm{x}_\infty \geq 0$
+					\item $\norm{x} = 0 \iff (1/3)\norm{x}_1+(2/3)\norm{x}_\infty = 0 \iff \norm{x}_1 = 0 \text{ and } \norm{x}_\infty = 0 \iff x = 0$.
+					\item \begin{equation*} \begin{split}
+						 \norm{\lambda x} & = (1/3)\norm{\lambda x}_1+(2/3)\norm{\lambda x}_\infty = (1/3)|\lambda|\norm{x}_1+(2/3)|\lambda|\norm{x}_\infty \\
+							 & = |\lambda|((1/3)\norm{x}_1+(2/3)\norm{x}_\infty) = |\lambda|\norm{x}
+					\end{split} \end{equation*}
+					\item $\norm{x+y} = (1/3)\norm{x+y}_1+(2/3)\norm{x+y}_\infty \leq (1/3)(\norm{x}_1+\norm{y}_1)+(2/3)(\norm{x}_\infty+\norm{y}_\infty) = \norm{x}+\norm{y}$.
+				\end{enumerate}
+				Thus $\norm{\cdot}$ satisfies the conditions to be a norm on $\R^n$.
+			\item %Use dia to draw unit ball around origin
 		\end{enumerate}
+	
+	\item [1.1.3] $\ell^1$ and $\ell^\infty$ are linear spaces using element-wise addition as the binary operation and the zero sequence $\mathbf{0} = \{0\}_{j=1}^\infty$ as the zero element.
+	Now we must show that $\norm{\cdot}_1$ and $\norm{\cdot}_\infty$ are norms in their respective spaces.
+	
 \end{itemize}
 
 \end{document}
