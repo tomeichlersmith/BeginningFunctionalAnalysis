@@ -3,3 +3,6 @@
 *.aux
 *.log
 *.synctex.gz
+
+#No dia creation files
+*.dia
