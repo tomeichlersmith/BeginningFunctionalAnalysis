@@ -51,19 +51,23 @@
 					\item $\norm{x+y} = (1/3)\norm{x+y}_1+(2/3)\norm{x+y}_\infty \leq (1/3)(\norm{x}_1+\norm{y}_1)+(2/3)(\norm{x}_\infty+\norm{y}_\infty) = \norm{x}+\norm{y}$.
 				\end{enumerate}
 				Thus $\norm{\cdot}$ satisfies the conditions to be a norm on $\R^n$.
-			\item 
+			\item Below are the example $r$-balls for the different norms.
 				\begin{figure}[h]
 					\begin{center}
-						\framebox[0.80\textwidth]{
-							\input{figures/1_1_1_c.tex}
-						}
+						\input{figures/1_1_1_c.tex}
 					\end{center}
-					\caption[]{\label{fig:example_balls_R2norms} Example $r$-balls on $\R^2$ with different norms.}
 				\end{figure}
 		\end{enumerate}
 	
 	\item [1.1.3] $\ell^1$ and $\ell^\infty$ are linear spaces using element-wise addition as the binary operation and the zero sequence $\mathbf{0} = \{0\}_{j=1}^\infty$ as the zero element.
 	Now we must show that $\norm{\cdot}_1$ and $\norm{\cdot}_\infty$ are norms in their respective spaces.
+	First, $\norm{\cdot}_1$ satisfies the conditions to be a norm: \\
+	Let $\mathbf{a},\mathbf{b} \in \ell^1$ and $\lambda \in \R$.
+	\begin{enumerate}[(i)]
+		\item $\norm{\mathbf{a}}_1 = \sum | a_i | \geq 0$ because each element of the sum $|a_i| \geq 0$.
+		\item $\norm{\mathbf{a}}_1 = \sum | a_i | = 0 \iff |a_i| = 0 \text{ for all } i \iff \mathbf{a} = \mathbf{0}$
+		\item $\norm{\lambda\mathbf{a}}_1 = \sum | \lambda a_i | = \sum |\lambda||a_i| = |\lambda|\sum |a_i| = |\lambda|\norm{\mathbf{a}}_1$
+	\end{enumerate}
 	
 \end{itemize}
 
