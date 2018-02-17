@@ -32,7 +32,12 @@
 				$$ d_1((1,1),(2,3)) = \norm{(1,1)-(2,3)}_1 = |1-2|+|1-3| = 1+2 = 3 $$
 				$$ d_2((1,1),(2,3)) = \norm{(1,1)-(2,3)}_2 = \sqrt{(1-2)^2+(1-3)^2} = \sqrt{1+4} = \sqrt{5} $$
 				$$ d_\infty((1,1),(2,3)) = \norm{(1,1)-(2,3)}_\infty = \max(|1-2|,|1-3|) = \max(1,2) = 2 $$
-			\item %Install dia and draw example balls in R^2
+			\item Below are the example $r$-balls for the different norms.
+			\begin{figure}[h]
+				\begin{center}
+					\input{figures/1_1_1_c.tex}
+				\end{center}
+			\end{figure}
 		\end{enumerate}
 	
 	\item [1.1.2]
@@ -51,24 +56,75 @@
 					\item $\norm{x+y} = (1/3)\norm{x+y}_1+(2/3)\norm{x+y}_\infty \leq (1/3)(\norm{x}_1+\norm{y}_1)+(2/3)(\norm{x}_\infty+\norm{y}_\infty) = \norm{x}+\norm{y}$.
 				\end{enumerate}
 				Thus $\norm{\cdot}$ satisfies the conditions to be a norm on $\R^n$.
-			\item Below are the example $r$-balls for the different norms.
-				\begin{figure}[h]
-					\begin{center}
-						\input{figures/1_1_1_c.tex}
-					\end{center}
-				\end{figure}
+			\item Below is the unit ball around the origin for $\norm{\cdot}$.
+			\begin{figure}[h]
+				\begin{center}
+					\input{figures/1_1_2_b.tex}
+				\end{center}
+			\end{figure}
 		\end{enumerate}
 	
 	\item [1.1.3] $\ell^1$ and $\ell^\infty$ are linear spaces using element-wise addition as the binary operation and the zero sequence $\mathbf{0} = \{0\}_{j=1}^\infty$ as the zero element.
 	Now we must show that $\norm{\cdot}_1$ and $\norm{\cdot}_\infty$ are norms in their respective spaces.
-	First, $\norm{\cdot}_1$ satisfies the conditions to be a norm: \\
-	Let $\mathbf{a},\mathbf{b} \in \ell^1$ and $\lambda \in \R$.
+	Let $\mathbf{a},\mathbf{b} \in \ell^1$ and $\lambda \in \R$. \\
+	First, $\norm{\cdot}_1$ satisfies the conditions to be a norm:
 	\begin{enumerate}[(i)]
 		\item $\norm{\mathbf{a}}_1 = \sum | a_i | \geq 0$ because each element of the sum $|a_i| \geq 0$.
-		\item $\norm{\mathbf{a}}_1 = \sum | a_i | = 0 \iff |a_i| = 0 \text{ for all } i \iff \mathbf{a} = \mathbf{0}$
-		\item $\norm{\lambda\mathbf{a}}_1 = \sum | \lambda a_i | = \sum |\lambda||a_i| = |\lambda|\sum |a_i| = |\lambda|\norm{\mathbf{a}}_1$
+		\item $\norm{\mathbf{a}}_1 = \sum | a_i | = 0 \iff |a_i| = 0 \text{ for all } i \iff \mathbf{a} = \mathbf{0}$.
+		\item $\norm{\lambda\mathbf{a}}_1 = \sum | \lambda a_i | = \sum |\lambda||a_i| = |\lambda|\sum |a_i| = |\lambda|\norm{\mathbf{a}}_1$.
+		\item This condition is satisfied by a central theorem in real analysis, which extends the triangle inequality to absolutely convergent series.
 	\end{enumerate}
 	
+	Next, $\norm{\cdot}_\infty$ satisfies the conditions to be a norm:
+	\begin{enumerate}[(i)]
+		\item $\norm{\mathbf{a}}_\infty = \sup\{|a_i|\} \geq 0$ because each $|a_i| \geq 0$.
+		\item $\norm{\mathbf{a}}_\infty = \sup\{|a_i|\} = 0 \iff |a_i| = 0 \text{ for all } i \iff \mathbf{a} = \mathbf{0}$.
+		\item $\norm{\lambda\mathbf{a}}_\infty = \sup\{|\lambda a_i|\} = |\lambda|\sup\{|a_i|\} = |\lambda|\norm{\mathbf{a}}_\infty$.
+		\item $\norm{\mathbf{a}+\mathbf{b}}_\infty = \sup\{|a_i+b_i|\} \leq \sup\{|a_i|+|b_i|\} \leq \sup\{|a_i|\}+\sup\{|b_i|\} = \norm{\mathbf{a}}_\infty + \norm{\mathbf{b}}_\infty$.
+	\end{enumerate}
+	Therefore $\ell^1$ and $\ell^\infty$ are both normed linear spaces.
+	
+	\item [1.1.4] $C([a,b])$ is a linear space with point-wise addition as the binary operation and $o(x)=0$ for all $x \in [a,b]$ as the zero element.
+	All that is left now is showing that $\norm{\cdot}_\infty$ is a norm.
+	Let $f,g \in C([a,b])$ and $\lambda \in \R$.
+	\begin{enumerate}[(i)]
+		\item $\norm{f}_\infty = \sup\{|f(x)|:x\in[a,b]\} \geq 0$ because $|f(x)| \geq 0$ for all $x \in [a,b]$.
+		\item $\norm{f}_\infty = \sup\{|f(x)|:x\in[a,b]\} = 0 \iff |f(x)| = 0 \text{ for all } x \in [a,b] \iff f = o$.
+		\item $\norm{\lambda f}_\infty = \sup\{|\lambda f(x)|:x\in[a,b]\} = \sup\{|\lambda||f(x)|:x\in[a,b]\} = |\lambda|\sup\{|f(x)|:x\in[a,b]\} = |\lambda|\norm{f}_\infty$.
+		\item $\norm{f+g}_\infty = \sup\{|f(x)+g(x)|:x \in [a,b]\} \leq \sup\{|f(x)|+|g(x)|:x\in[a,b]\} \leq \sup\{|f(x)|:x\in[a,b]\}+\sup\{|g(x)|:x\in[a,b]\} = \norm{f}_\infty+\norm{g}_\infty$.
+	\end{enumerate}
+	
+	\item [1.1.5] Assume $(V,\norm{\cdot})$ is a normed linear space and $d:V\times V \to \R$ is defined as
+	$$ d(v,w) = \norm{v-w} $$
+	Then
+	\begin{enumerate}[(i)]
+		\item $d(v,w) = \norm{v-w} \geq 0$ for all $v,w \in V$ because $v-w \in V$ and $\norm{\cdot}$ is a norm.
+		\item $d(v,w) = 0 \iff \norm{v-w} = 0 \iff v-w = 0 \iff v=w$.
+		\item $d(v,w) = \norm{v-w} = \norm{(-1)(w-v)} = |-1|\norm{w-v} = \norm{w-v} = d(w,v)$ for all $v,w \in V$.
+		\item $d(v,w) = \norm{v-w} = \norm{v-z+z-w} \leq \norm{v-z}+\norm{z-w} = d(v,z)+d(z,w)$ for all $v,w,z \in V$.
+	\end{enumerate}
+	So $d$ is a metric on $V$.
+	
+	\item [1.1.6] Assume $(V,\langle\cdot,\cdot\rangle)$ is an inner product space.
+	Define $\norm{\cdot}:V \to \R$ by
+	$$ \norm{v} = \sqrt{\langle v,v \rangle} $$
+	Then
+	\begin{enumerate}[(i)]
+		\item $\norm{v} = \sqrt{\langle v,v \rangle} \geq 0$ for all $v \in V$.
+		\item $\norm{v} = \sqrt{\langle v,v \rangle} = 0 \iff \langle v,v \rangle = 0 \iff v = 0$.
+		\item $\norm{\lambda v} = \sqrt{\langle \lambda v,\lambda v \rangle} = \sqrt{\lambda^2\langle v,v \rangle} = |\lambda|\sqrt{\langle v,v \rangle} = |\lambda|\norm{v}$ for all $v \in V$ and $\lambda \in \R$.
+		\item $\norm{v+w} = \sqrt{\langle v+w,v+w \rangle} = \sqrt{\langle v,v \rangle + \langle v,w \rangle + \langle w,v \rangle + \langle w,w \rangle} \leq \sqrt{\langle v,v \rangle} + \sqrt{\langle w,w \rangle} = \norm{v}+\norm{w}$ for all $v,w \in V$.
+	\end{enumerate}
+	So $\norm{\cdot}$ is a norm on $V$.
+	
+	\item [1.1.7] In any complex inner product space $(V,\langle\cdot,\cdot\rangle)$, we can construct a series of equalities using Hermitian symmetry and multiplicativity of the inner product.
+	Let $v,w \in V$ and $\lambda \in \mathbb{C}$. Then
+	$$ \langle v,\lambda w \rangle = \conj{\langle \lambda w,v \rangle} = \conj{\lambda} \conj{\langle w,v \rangle} = \conj{\lambda}\langle v,w \rangle $$
+	So we can conclude $\langle v,\lambda w \rangle = \conj{\lambda}\langle v,w \rangle$.
+	
+	\item [1.1.8]
+	
+	\item [1.1.9]
 \end{itemize}
 
 \end{document}
