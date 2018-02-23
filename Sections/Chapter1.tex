@@ -123,6 +123,43 @@
 	So we can conclude $\langle v,\lambda w \rangle = \conj{\lambda}\langle v,w \rangle$.
 	
 	\item [1.1.8]
+	\begin{enumerate}[(a)]
+		\item Assume that $(V,\norm{\cdot})$ is a normed linear space. \\
+		$(\Rightarrow)$ Assume that $\norm{v} = \sqrt{\langle v,v \rangle}$ for some inner product $\langle \cdot,\cdot \rangle$.
+		Then (using the properties of an inner product)
+		\begin{equation*} \begin{split}
+			\norm{u+v}^2+\norm{u-v}^2 & = \langle u+v , u+v \rangle + \langle u-v,u-v \rangle \\
+				& = \langle u,u \rangle + 2\langle u,v \rangle + \langle v,v \rangle + \langle u,u \rangle -2\langle u,v \rangle + \langle v,v \rangle \\
+				& = 2\langle u,u \rangle + 2\langle v,v \rangle \\
+				& = 2\norm{u}^2+2\norm{v}^2
+		\end{split} \end{equation*}
+		So $\norm{\cdot}$ satisfies the parallelogram equality for an arbitrary pair $u,v \in V$. \\
+		$(\Leftarrow)$ Assume that $\norm{\cdot}$ satisfies the parallelogram equality for all $u,v \in V$.
+		Define $\langle \cdot,\cdot \rangle: V\times V \to \R$ as
+		$$ \langle u,v \rangle = \frac{1}{2}\norm{u}^2+\frac{1}{2}\norm{v}^2-\frac{1}{2}\norm{u-v}^2 = \frac{1}{4}\left(\norm{u+v}^2+\norm{u-v}^2\right) $$
+		Then
+		$$ \langle v,v \rangle = \frac{1}{4}\norm{2v}^2 = \norm{v}^2 \geq 0 $$
+		and $\langle v,v \rangle = \norm{v}^2 = 0$ if and only if $v = 0$ because of the properties of $\norm{\cdot}$.
+		Also, for any $u,v \in V$
+		\begin{equation*} \begin{split}
+			\langle u,v \rangle & = \frac{1}{4}\left(\norm{u+v}^2+\norm{u-v}^2\right) \\
+				& = \frac{1}{4}\left(\norm{v+u}^2+\norm{(-1)(v-u)}^2\right) \\
+				& = \frac{1}{4}\left(\norm{v+u}^2+\norm{v-u}^2\right) \\
+				& = \langle v,u \rangle
+		\end{split} \end{equation*}
+		Now let $u,v,w \in V$.
+		From the parallelogram equality we have
+		$$ 2\norm{u+v}^2+2\norm{w}^2 = \norm{u+v+w}^2+\norm{u+v-w}^2 $$
+		Rearranging this gives
+		\begin{equation*} \begin{split}
+			\norm{u+v+w}^2 & = 2\norm{u+v}^2+2\norm{w}^2-\norm{u+v-w}^2 \\
+				& = 2\norm{w+v}^2+2\norm{u}^2-\norm{w+v-u}^2
+		\end{split} \end{equation*}
+		where the second line comes from exchanging (the arbitrary) $u$ and $w$.
+		Adding the right hand sides together and dividing by two gives us the left hand side again, so
+		$$ \norm{u+v+w}^2 = \norm{u}^2+\norm{w}^2+\norm{u+v}^2+\norm{w+v}^2-\frac{1}{2}\norm{u+v-w}^2+\frac{1}{2}\norm{w+v-u}^2 $$
+		%Continue
+	\end{enumerate}
 	
 	\item [1.1.9] We are able to find two functions that do not satisfy the parallelogram equality; therefore, the supremum norm cannot come from an inner product.
 	Let $f,g \in C([a,b])$ be defined as
