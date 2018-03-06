@@ -47,6 +47,51 @@
 		The collection $\{[0,1-1/n] : n \in \mathbb{N} \}$ is a collection of closed sets, but
 		$$ \bigcup_{n=1}^\infty \left[0,1-\frac{1}{n}\right] = [0,1) $$
 		which is not a closed set.
+	
+	\item [2.1.4] Let $(M,d)$ be a metric space and let $E \subseteq M$.
+		\textit{Note:} We use the claim that $E$ is closed if and only if $E^C$ is open --- this is proven in Exercise 2.1.1. \\
+		Assume $E$ is compact and let $x \in E^C$.
+		Define $r_e = d(e,x)/2$ for all $e \in E$.
+		Define an open cover of $E$ as
+		$$ \mathcal{F} = \left\{ B_{r_e}(e) : e \in E \right\} $$
+		Since $E$ is compact, $\mathcal{F}$ has a finite sub-cover
+		$$ \left\{ B_{r_{e_1}}(e_1), \dots , B_{r_{e_N}}(e_N) \right\} $$
+		Let $\rho = \min{r_{e_1}, \dots , r_{e_N}}$.
+		Suppose $y \in B_\rho(x) \cap E$. Then $y \in B_{r_{e_i}}(x)$ for some $i$ in the finite cover.
+		Then
+		$$ d(x,e_i) \leq d(x,y)+d(y,e_i) < \rho + r_{e_i} \leq 2r_{e_i} = d(x,e_i) $$
+		which is impossible.
+		So there is no $y \in E$ that is in $B_\rho(x)$.
+		Thus $B_\rho(x) \subseteq E^C$, which means $E^C$ is open.
+		Therefore $E$ is closed.
+	
+	\item [2.1.5]
+	\begin{enumerate}[(a)]
+		\item In this space $(0,1)$ is open and not closed.
+			\textit{Proof:} Let $x \in (0,1)$.
+			Then set $r = \min{x,1-x}$.
+			Then $B_r(x) \subseteq (0,1)$.
+			Thus $(0,1)$ is open. $0$ is a limit point of $(0,1)$ and $0 \not\in (0,1)$, so $(0,1)$ is not closed.
+		\item In this space $(0,1)$ is neither open nor closed.
+			\textit{Proof:} The point $(1/2,1) \in (0,1)$ but any ball around it will include points off the x-axis, so $(0,1)$ cannot be open.
+			The point $(0,0)$ is a limit point of $(0,1)$ that is not in it, so $(0,1)$ cannot be closed.
+	\end{enumerate}
+	
+	\item [2.1.6] Generally $\interior{A\cup B} \neq \interior{A} \cup \interior{B}$.
+		Counter-example: Let $A = (0,1]$ and $B = [1,2)$ in $\R$.
+		Then $\interior{A\cup B} = (0,2)$ and $\interior{A}\cup\interior{B} = (0,1)\cup(1,2) \neq (0,2)$. \\
+		Contrarily, it is generally true that $\interior{A\cap B} = \interior{A} \cap\interior{B}$. \\
+		\textit{Proof:} $(\subseteq)$ Let $x \in \interior{A\cap B}$.
+		Then there exists $r>0$ such that $B_r(x) \subseteq A\cap B$.
+		This means $B_r(x) \subseteq A$ and $B_r(x) \subseteq B$.
+		Thus $x$ is in both interiors, meaning $x \in \interior{A}\cap\interior{B}$. \\
+		$(\supseteq)$ Let $x \in \interior{A}\cap\interior{B}$.
+		Then there exist $r_1,r_2$ such that $B_{r_1}(x) \subseteq A$ and $B_{r_2}(x) \subseteq B$.
+		Set $r = \min{r_1,r_2}$.
+		Then $B_r(x) \subseteq A\cap B$.
+		Thus $x \in \interior{A\cap B}$. \\
+	
+	
 \end{itemize}
 
 \end{document}
