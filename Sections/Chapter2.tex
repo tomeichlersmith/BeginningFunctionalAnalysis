@@ -1,0 +1,36 @@
+\documentclass[../../Solutions.tex]{subfiles}
+
+\begin{document}
+
+\begin{itemize}
+	\item [2.1.1] Let $E \subseteq (M,d)$ a metric space, and define $E^C = M \setminus E$. \\
+		$(\Rightarrow)$ Assume $E$ is open.
+		Let $x$ be a limit point of $E^C$, then either $x \in E$ or $x \in E^C$.
+		If $x \in E$, then there exists $r > 0$ such that $B_r(x) \subseteq E$ since $E$ is open.
+		But $B_r(x) \cap E^C = \emptyset$.
+		Thus $x \in E^C$.
+		Therefore $E^C$ contains all of its limit points and therefore is closed. \\
+		$(\Leftarrow)$ Assume $E^C$ is closed.
+		Let $x \in E$.
+		Since $E^C$ is closed, there must be an $r > 0$ such that $B_r(x) \cap E^C = \emptyset$.
+		(Otherwise, if no such $r$ exists, then $x$ would be a limit point of $E^C$ that is not in $E^C$.)
+		Thus $B_r(x) \subseteq \left(E^C\right)^C = E$.
+		Therefore $E$ is open.
+	
+	\item [2.1.2] We will use the equivalence given in Exercise 2.1.1 for parts (b) and (d).
+	\begin{enumerate}[(a)]
+		\item Assume $\{E_\alpha\}$ is a collection of open sets.
+			Let $x \in \cup_\alpha E_\alpha$.
+			Then $x \in E_\alpha$ for some $\alpha$.
+			Thus there exists an $r > 0$ such that $B_r(x) \subseteq E_\alpha \subseteq \cup_\alpha E_\alpha$.
+			Therefore $\cup_\alpha E_\alpha$ is open.
+		\item Assume $\{F_\alpha\}$ is a collection of closed sets.
+			Then $\{F_\alpha^C\}$ is a collection of open sets.
+			Thus (by part (a)) $\cup_\alpha F_\alpha^C$ is open, which means its complement is closed.
+			Thus $\left(\cup_\alpha F_\alpha^C\right)^C = \cap_\alpha F_\alpha$ is closed.
+		\item Assume $\{E_i\}_{i=1}^N$ is a finite collection of open sets.
+			Let 
+	\end{enumerate}
+\end{itemize}
+
+\end{document}
