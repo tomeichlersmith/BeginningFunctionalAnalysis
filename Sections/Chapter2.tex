@@ -20,17 +20,33 @@
 	\item [2.1.2] We will use the equivalence given in Exercise 2.1.1 for parts (b) and (d).
 	\begin{enumerate}[(a)]
 		\item Assume $\{E_\alpha\}$ is a collection of open sets.
-			Let $x \in \cup_\alpha E_\alpha$.
+			Let $x \in \bigcup_\alpha E_\alpha$.
 			Then $x \in E_\alpha$ for some $\alpha$.
-			Thus there exists an $r > 0$ such that $B_r(x) \subseteq E_\alpha \subseteq \cup_\alpha E_\alpha$.
-			Therefore $\cup_\alpha E_\alpha$ is open.
+			Thus there exists an $r > 0$ such that $B_r(x) \subseteq E_\alpha \subseteq \bigcup_\alpha E_\alpha$.
+			Therefore $\bigcup_\alpha E_\alpha$ is open.
 		\item Assume $\{F_\alpha\}$ is a collection of closed sets.
 			Then $\{F_\alpha^C\}$ is a collection of open sets.
-			Thus (by part (a)) $\cup_\alpha F_\alpha^C$ is open, which means its complement is closed.
-			Thus $\left(\cup_\alpha F_\alpha^C\right)^C = \cap_\alpha F_\alpha$ is closed.
+			Thus (by part (a)) $\bigcup_\alpha F_\alpha^C$ is open, which means its complement is closed.
+			Thus $\left(\bigcup_\alpha F_\alpha^C\right)^C = \bigcap_\alpha F_\alpha$ is closed.
 		\item Assume $\{E_i\}_{i=1}^N$ is a finite collection of open sets.
-			Let 
+			Let $x \in \bigcap_{i=1}^N E_i$.
+			Then $x \in E_i$ for all $i$, which means there exists $r_i$ such that $B_{r_i}(x) \subseteq E_i$ for all $i$.
+			Set $r = \min{r_i}$.
+			Then $B_r(x) \subseteq B_{r_i}(x) \subseteq E_i$ for all $i$.
+			Thus $B_r(x) \subseteq \bigcap_{i=1}^N E_i$.
+			Therefore $\bigcap_{i=1}^N E_i$ is open.
+		\item Assume $\{F_i\}_{i=1}^N$ is a finite collection of closed sets.
+			Then $\{F_i^C\}$ is a finite collection of open sets.
+			Thus (by part (c)), $\bigcap_{i=1}^N F_i^C$ is open, which means its complement is closed.
+			Therefore $\left(\bigcap_{i=1}^N F_i^C\right)^C = \bigcup_{i=1}^N F_i$ is closed.
 	\end{enumerate}
+	
+	\item [2.1.3] The collection $\{(-1,1/n) : n \in \mathbb{N} \}$ is a collection of open sets, but
+		$$ \bigcup_{n=1}^\infty \left(-1,\frac{1}{n}\right) = (-1,0] $$
+		which is not an open set. \\
+		The collection $\{[0,1-1/n] : n \in \mathbb{N} \}$ is a collection of closed sets, but
+		$$ \bigcup_{n=1}^\infty \left[0,1-\frac{1}{n}\right] = [0,1) $$
+		which is not a closed set.
 \end{itemize}
 
 \end{document}
