@@ -134,7 +134,7 @@
 		Let $y \in E$ be given.
 		Then $x \in B_r(x_i)$ for some $i$ and $y \in B_r(x_j)$ for some $j$.
 		Then
-		$$ d(x,y) \leq d(x,x_i) + d(x_i,x_j) + d(x_j,y) < r + r + d(x_i,x_j) \leq D $$
+		$$ d(x,y) \leq d(x,x_i) + d(x_i,x_j) + d(x_j,y) < r + d(x_i,x_j) + r \leq D $$
 		Thus $y \in B_D(x)$.
 		Therefore $B_D(x) \supseteq E$. \\
 		Any set with an infinite number of elements would not admit a finite cover of $r$-balls with $r < 1$ under the discrete metric.
@@ -161,7 +161,23 @@
 		
 	\item [2.1.15]
 	\begin{enumerate}[(a)]
-		\item 
+		\item Let $f:M_1 \to M_2$. \\
+			$(\Rightarrow)$ Let $U \subseteq M_2$ be open and let $f$ be continuous.
+			Let $y \in M_1$ such that $f(y) \in U$.
+			Since $U$ is open, there exists $\epsilon > 0$ such that $B_\epsilon(f(y)) \subseteq U$.
+			Since $f$ is continuous, there exists $\delta > 0$ such that if $x \in B_\delta(y)$ then $f(x) \in B_\epsilon(f(y)) \subseteq U$.
+			Thus $B_\delta(y) \subseteq f^{-1}(U)$ which means $f^{-1}(U)$ is open. \\
+			$(\Leftarrow)$ If $U \subseteq M_2$ is open, then $f^{-1}(U) \subseteq M_1$ is open.
+			Let $\epsilon > 0$ be given.
+			Then $B_\epsilon(f(x)) \subseteq M_2$ is open, which means $f^{-1}(B_\epsilon(f(x))) \subseteq M_1$ is open.
+			Thus there exists a $\delta > 0$ such that $B_\delta(x) \subseteq f^{-1}(B_\epsilon(f(x)))$.
+			Therefore $f$ is continuous.
+		\item Let $f:M \to \R$ be continuous and let $A \subseteq M$.
+			Assume $f(A)$ is unbounded.
+			Define $\{y_i\}_{i=1}^\infty \subseteq f(A)$ to be a sequence that diverges to infinity.
+			Then $\{x_i:f(x_i) = y_i\}_{i=1}^\infty \subseteq A$ is a sequence that has no convergent subsequence because otherwise $\{y_i\}_{i=1}^\infty$ wouldn't diverge.
+			Thus $A$ is not sequentially compact and therefore not compact. \\
+			Equivalently, if $A$ is compact, then $f(A)$ is bounded.
 	\end{enumerate}
 		
 \end{itemize}
