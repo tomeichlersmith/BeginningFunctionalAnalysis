@@ -101,9 +101,69 @@
 	
 	\item [2.1.8]
 	\begin{enumerate}[(a)]
-		\item The set of limit points of $S=\{\frac{1}{n} : n \in \mathbb{N} \}$ is $\{0\}$. \\
-		\item
+		\item The set of limit points of $S=\{\frac{1}{n} : n \in \mathbb{N} \}$ is $\{0\}$.
+		\item Because $\mathbb{Q}$ is dense in $\mathbb{R}$, each point of $\mathbb{R}$ is a limit point of $\mathbb{Q}$.
 	\end{enumerate}
+	
+	\item [2.1.9] Define $e_i$ to be the zero sequence with $1$ in the $i$th position.
+		Then the set $E = \{ e_i : i \in \mathbb{N}\} \subseteq \ell^\infty$ is closed and bounded, but the open cover $\{B_{1/2}(e_i) : i \in \mathbb{N}\}$ has no finite sub-cover (so $E$ is not compact).
+	
+	\item [2.1.10] The open cover $\{ (-10 + 1/n , 10] : n \in \mathbb{N} \}$ has no finite sub-cover.
+	
+	\item [2.1.11] Let $C = \bigcap_{n=1}^\infty C_n$ be the Cantor set where the $C_n$ are the sub-divisions of $[0,1]$ in the usual definition of $C$.
+	\begin{enumerate}[(a)]
+		\item Since $C \subseteq \R$, we can use the Heine-Borel Theorem to show that it is compact by showing that it is closed and bounded.
+			By definition of $C$ (as a subset of $[0,1]$), it is bounded.
+			Since $C_n$ is a finite union of closed intervals (for each $n$), $C_n$ is closed for all $n$.
+			Since arbitrary intersections of closed sets are closed, $C$ is closed.
+			Thus $C$ is closed and bounded and therefore compact.
+		\item $\interior{C}=\emptyset$.
+			Suppose there is an open interval $I = (a,b)$ (equivalently, an open ball) contained in $C$.
+			Then $I \subseteq C_n$ for all $n$.
+			The $C_n$ are made up of disjoint intervals of width $(2/3)^n$, so for $I$ to be a subset of all $C_n$, $0 < b-a < (2/3)^n$ for all $n$.
+			This is impossible.
+			Therefore, there is no open ball contained in $C$.
+	\end{enumerate}
+	
+	\item [2.1.12] Assume $E$ is totally bounded.
+		Let $\{ B_{r}(x_i) \}_{i=1}^N$ be the finite cover of $r$-balls.
+		Let $x \in E$.
+		Define the diameter $D$ as
+		$$ D = \max\{ 2r + d(x_i , x_j) : 1 \leq i,j \leq N \} $$
+		Claim: $B_D(x) \supseteq E$.
+		Let $y \in E$ be given.
+		Then $x \in B_r(x_i)$ for some $i$ and $y \in B_r(x_j)$ for some $j$.
+		Then
+		$$ d(x,y) \leq d(x,x_i) + d(x_i,x_j) + d(x_j,y) < r + r + d(x_i,x_j) \leq D $$
+		Thus $y \in B_D(x)$.
+		Therefore $B_D(x) \supseteq E$. \\
+		Any set with an infinite number of elements would not admit a finite cover of $r$-balls with $r < 1$ under the discrete metric.
+	
+	\item [2.1.13]
+	\begin{enumerate}[(a)]
+		\item Define $f_n(x) = x^n$ for all $n$.
+			Then $\{f_n\}_{n=1}^\infty$ has no convergent subsequence in $C([a,b])$.
+			And $\norm{f_n} = 1$ for all $n$ meaning $f_n \in \conj{B_1(0)}$.
+			Thus the closed unit ball is not compact because it is not sequentially compact.
+		\item Define $a_n$ as the sequence of zeros with $1$ as the $n$th position.
+			Then $\{a_n\}_{n=1}^\infty$ has no convergent subsequence.
+			And $\norm{a_n} = 1$ for all $n$ meaning $a_n \in \conj{B_1(0)}$.
+			Thus the closed unit ball is not compact because it is not sequentially compact.
+		\item %INF DIM TO NOT COMPACT CLOSED UNIT BALL PROOF
+	\end{enumerate}
+	
+	\item [2.1.14] Assume $A \subseteq M$ is compact and $U \subseteq M$ is open.
+		Let $\mathcal{E} = \{E_\alpha\}$ be an open cover of $A \setminus U$.
+		Then $\{U\} \cup \{E_\alpha\}$ is an open cover of $A$.
+		This open cover has a finite sub-cover $\mathcal{F}$ because $A$ is compact.
+		Then $\mathcal{F} \setminus \{U\}$ still covers $A \setminus U$, and is still finite.
+		Thus $\mathcal{E}$ has a finite subcover, making $A \setminus U$ compact.
+		
+	\item [2.1.15]
+	\begin{enumerate}[(a)]
+		\item 
+	\end{enumerate}
+		
 \end{itemize}
 
 \end{document}
