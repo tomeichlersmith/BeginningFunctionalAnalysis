@@ -197,7 +197,9 @@
 		$Q$ is in one-to-one correspondence with the countable set $\mathbb{Q}$ under the mapping $\mathbf{q} \to q$.
 		Let $\mathbf{a} \in \ell^1$ and $\epsilon > 0$ be given.
 		Choose $q \in \mathbb{Q}$ such that $\norm{\mathbf{a}}_1 < q < \norm{\mathbf{a}}_1 + \epsilon$.
-		Then $\mathbf{q} \in Q$ and $\mathbf{q} \in B_\epsilon(\mathbf{a})$.
+		Then
+		$$\norm{\mathbf{a}-\mathbf{q}}_1 = \norm{\mathbf{a}}_1-|a_1|+|a_1-q| \leq \norm{\mathbf{a}}_1 - \norm{\mathbf{a}}_1 + \norm{\mathbf{a}}_1 - |q| < \epsilon$$
+		Thus $\mathbf{q} \in Q \cap B_\epsilon(\mathbf{a})$.
 		Thus $\mathbf{a}$ is a limit point of $Q$.
 		Therefore, since $\mathbf{a}$ is arbitrary, all the points of $\ell^1$ are limit points of $Q$. \\
 		Thus $Q$ is a countable dense subset of $\ell^1$ making $\ell^1$ separable.
