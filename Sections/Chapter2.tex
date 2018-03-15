@@ -187,8 +187,12 @@
 			$\phi$ is a clear one-to-one correspondence.
 			Thus $\mathcal{Q}([a,b])$ has the same cardinality of $\bigcup_{n=1}^\infty \mathbb{Q}^n$ which is a countable union of countable sets.
 			Thus $\mathcal{Q}([a,b])$ is countable.
-		\item Let $p_1,p_2 \in \mathcal{P}([a,b])$.
-			Then $p_1(x) = \sum_{i=0}^M a_1^i x^i$ and $p_2(x) = \sum_{i=0}^N a_2^i x^i$.
+		\item Let $p \in \mathcal{P}([a,b])$ and let $\epsilon > 0$ be given.
+			Then $p(x) = \sum_{i=0}^N a_i x^i$.
+			Define $q_i \in \mathbb{Q}$ such that $a_i < q_i < a_i+\epsilon/b^N$ for each $0 \leq i \leq N$.
+			Thus we define $q \in \mathcal{Q}$ as $q(x) = \sum_{i=0}^N q_i x^i$.
+			Then, using the supremum norm on $C([a,b])$,
+			$$ \norm{p-q}_\infty = \sup\left\{\sum_{i=0}^N (a_i-q_i)x^i : x \in [a,b]\right\} \leq \sum_{i=0}^N(a_i-q_i)b^N$$
 			%RATIONAL POLYNOMIALS DENSE IN REAL POLYNOMIALS
 	\end{enumerate}
 	
@@ -198,14 +202,21 @@
 		Let $\mathbf{a} \in \ell^1$ and $\epsilon > 0$ be given.
 		Choose $q \in \mathbb{Q}$ such that $\norm{\mathbf{a}}_1 < q < \norm{\mathbf{a}}_1 + \epsilon$.
 		Then
-		$$\norm{\mathbf{a}-\mathbf{q}}_1 = \norm{\mathbf{a}}_1-|a_1|+|a_1-q| \leq \norm{\mathbf{a}}_1 - \norm{\mathbf{a}}_1 + \norm{\mathbf{a}}_1 - |q| < \epsilon$$
+		$$\norm{\mathbf{a}-\mathbf{q}}_1 = \norm{\mathbf{a}}_1-|a_1|+|a_1-q| \leq \norm{\mathbf{a}}_1 - \norm{\mathbf{a}}_1 + |\norm{\mathbf{a}}_1 - q| = |\norm{\mathbf{a}}_1-q| < \epsilon$$
+		%FIX
 		Thus $\mathbf{q} \in Q \cap B_\epsilon(\mathbf{a})$.
 		Thus $\mathbf{a}$ is a limit point of $Q$.
 		Therefore, since $\mathbf{a}$ is arbitrary, all the points of $\ell^1$ are limit points of $Q$. \\
 		Thus $Q$ is a countable dense subset of $\ell^1$ making $\ell^1$ separable.
 	
-	\item [2.2.3] 
-	
+	\item [2.2.3] Now define $\mathbf{q} = (q,q,q,\dots) \in \ell^\infty$ for all $q \in \mathbb{Q}$.
+		The set $Q = \{\mathbf{q} : q \in \mathbb{Q}\}$ is countable because it is in one-to-one correspondence with $\mathbb{Q}$. \\
+		Let $\mathbf{a} \in \ell^\infty$ and $\epsilon > 0$ be given.
+		Choose $q \in \mathbb{Q}$ such that $\norm{\mathbf{a}}_\infty < q < \norm{\mathbf{a}}_\infty + \epsilon$.
+		Then
+		$$ \norm{\mathbf{a}-\mathbf{q}}_\infty = \sup\{|a_i-q|\} \leq |\sup\{|a_i|\}-q| = |\norm{\mathbf{a}}_\infty-q| < \epsilon $$
+		Thus $\mathbf{q} \in Q\cap B_\epsilon(\mathbf{a})$ which means $\mathbf{a}$ is a limit point of $Q$.
+		Therefore $Q$ is countable and dense in $\ell^\infty$, meaning $\ell^\infty$ is separable.
 \end{itemize}
 
 \end{document}
