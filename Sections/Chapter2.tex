@@ -217,6 +217,93 @@
 		$$ \norm{\mathbf{a}-\mathbf{q}}_\infty = \sup\{|a_i-q|\} \leq |\sup\{|a_i|\}-q| = |\norm{\mathbf{a}}_\infty-q| < \epsilon $$
 		Thus $\mathbf{q} \in Q\cap B_\epsilon(\mathbf{a})$ which means $\mathbf{a}$ is a limit point of $Q$.
 		Therefore $Q$ is countable and dense in $\ell^\infty$, meaning $\ell^\infty$ is separable.
+	
+	\item [2.3.1] Assume $X=\{x_n\}_{n=1}^\infty \subseteq M$ is Cauchy.
+		Define $N \in \mathbb{N}$ such that $d(x_i,x_j) < 1$ for all $i,j \geq N$ --- possible since $X$ is Cauchy.
+		Now define $R = \max\{ 1 , d(x_1,x_N) , d(x_2,x_N) , \dots , d(x_{N-1},x_N) \}$.
+		Then $d(x_i, x_N) \leq R$ for all $i$ because of the definition of $R$ and $N$.
+		Let $n \in \mathbb{N}$ be given.
+		For any $i$,
+		$$ d(x_i,x_n) \leq d(x_i,x_N)+d(x_N,x_n) \leq 2R $$
+		which means $X \subseteq B_{2R}(x_n)$. Therefore $X$ is bounded.
+	
+	\item [2.3.2] Assume there exists $a > 0$ and $b > 0$ such that
+		$$ a\norm{x} \leq \inorm{x} \leq b\norm{x} \quad \text{for all } x \in X $$
+		$(\Rightarrow)$ Assume $(X,\norm{\cdot})$ is complete.
+		Let $\{x_n\}_{n=1}^\infty$ be Cauchy in $(X,\inorm{\cdot})$ and let $\epsilon > 0$ be given.
+		Choose $N \in \mathbb{N}$ such that $\inorm{x_n - x_m} < a\epsilon$ for all $n,m \geq N$.
+		Then
+		$$ \norm{x_n - x_m} \leq \frac{1}{a}\inorm{x_n - x_m} < \epsilon  \quad \text{for all } n,m \geq N $$
+		Thus $\{x_n\}_{n=1}^\infty$ is Cauchy in $(X,\norm{\cdot})$ and therefore converges to some $x \in X$.
+		Let $\delta > 0$ be given.
+		Choose $M \in \mathbb{N}$ such that $\norm{x_n - x} < \delta/b$ for all $n \geq M$.
+		Then
+		$$ \inorm{x_n - x} \leq b\norm{x_n - x} < \delta \quad \text{for all } n \geq M $$
+		Thus $\{x_n\}_{n=1}^\infty$ converges to $x$ in $(X,\inorm{\cdot})$.
+		Therefore $(X,\inorm{\cdot})$ is complete. \\
+		$(\Leftarrow)$ Because $a > 0$ and $b > 0$ we are able to conclude
+		$$ a\norm{x} \leq \inorm{x} \leq b\norm{x} \quad\Longrightarrow\quad \frac{1}{b}\inorm{x} \leq \norm{x} \frac{1}{a}\inorm{x} $$
+		Then we use the preceding argument to conclude that $(X,\norm{\cdot})$ is complete if $(X,\inorm{\cdot})$ is complete. \\
+		On a side note, being equivalent norms is an equivalence relation on the set of all norms. \\
+		\textit{Proof:} Let $x$ be an arbitrary element in a normed space $X$ which has the norms $|\cdot|$, $\norm{\cdot}$, and $\inorm{\cdot}$.
+		\begin{itemize}
+			\item [Reflexive:] Set $a = b = 1$, then $\norm{x} \leq \norm{x} \leq \norm{x}$.
+				So $\norm{\cdot}$ is equivalent to itself.
+			\item [Symmetric:] If $a\norm{x} \leq \inorm{x} \leq b\norm{x}$, then (since $a > 0$ and $b > 0$) $(1/b)\inorm{x} \leq \norm{x} \leq (1/a)\inorm{x}$.
+			\item [Transitive:] If $a|x| \leq \norm{x} \leq b|x|$ and $c\norm{x} \leq \inorm{x} \leq d\norm{x}$, then $ac|x| \leq \inorm{x} \leq bd|x|$.
+		\end{itemize}
+		Thus being equivalent norms is an equivalence relation on the set of norms.
+	
+	\item [2.3.3] We will be using the fact that equivalence of norms is an equivalence relation (proved in 2.3.2 above).
+		Let $x = (x_1,x_2,\dots,x_n) \in \R^n$ be given.
+		\begin{enumerate}[(a)]
+			\item Define $m = \norm{x}_\infty = \max\{|x_i| : 1 \leq i \leq n\}$.
+				Then
+				$$ m \leq \sum_{i=1}^n |x_i| \leq \sum_{i=1}^n m = n m $$
+				which means
+				$$ \norm{x}_\infty \leq \norm{x}_1 \leq n\norm{x}_\infty $$
+				Similarly,
+				$$ m \leq \sqrt{\sum_{i=1}^n x_i^2} \leq \sqrt{\sum_{i=1}^n m^2} = n m $$
+				which means
+				$$ \norm{x}_\infty \leq \norm{x}_2 \leq n\norm{x}_\infty $$
+				Thus all three norms are equivalent (because being equivalent norms is transitive).
+			\item %EQUIV NORMS ON FINITE SPACES
+		\end{enumerate}
+	
+	\item [2.3.4] If $d$ is the discrete metric, then $(M,d)$ is complete.
+		The only way for $\{x_n\}_{n=1}^\infty$ to be Cauchy is for $x_n = x$ for all $n \geq N$ for some $N$.
+		This would mean that $\{x_n\}_{n=1}^\infty$ would converge to $x \in M$ as well.
+	
+	\item [2.3.5] Define $\norm{\cdot}_1 : C([a,b]) \to \R$ by
+		$$ \norm{f}_1 = \int_a^b |f(x)| dx $$
+		Let $o(x) = 0$ for all $x \in [a,b]$.
+		We say two functions are equal if they are equal almost everywhere.
+		Then
+		\begin{enumerate}[(i)]
+			\item $\norm{f}_1 \geq 0$ for all $f \in C([a,b])$.
+			\item $\norm{f}_1 = 0 \iff |f(x)| = 0 \text{ for almost all } x \in [a,b] \iff f = o$.
+			\item $\norm{\lambda f}_1 = \int_a^b |\lambda f(x)| dx = |\lambda|\int_a^b|f(x)|dx = |\lambda|\norm{f}_1$.
+			\item $\norm{f+g}_1 = \int_a^b |f(x)+g(x)|dx \leq \int_a^b|f(x)|+|g(x)|dx = \norm{f}_1+\norm{g}_1$.
+		\end{enumerate}
+		Thus $\norm{\cdot}_1$ is a norm on $C([a,b])$. \\
+		This norm does not come from an inner product.
+		The functions defined below do not satisfy the parallelogram equality.
+		$$ f(x) = \frac{1}{b-a}(x-a) \quad g(x) = 1-\frac{1}{b-a}(x-a) $$
+		The normed linear space $(C([a,b]),\norm{\cdot}_1)$ is also not a Banach space because it is not complete. \\
+		Define $f_n:[0,1] \to \R$ as $f_n(x) = x^n$ for all $n$.
+		Let $\epsilon > 0$ be given.
+		Choose $N$ such that $1/N < \epsilon$.
+		Then if $n,m \geq N$ we have
+		$$ \norm{f_n-f_m}_1 = \int_0^1|x^n-x^m|dx = \left|\frac{1}{n+1}-\frac{1}{m+1}\right| < \frac{1}{N} < \epsilon $$
+		So $\{f_n\}_{n=1}^\infty$ is Cauchy, but it converges point-wise to
+		$$ f(x) = \begin{cases}
+			0 & \text{if } x < 1 \\
+			1 & \text{if } x = 1
+		\end{cases} $$
+		which is not a continuous function.
+	
+	\item [2.3.6]
+	
 \end{itemize}
 
 \end{document}
