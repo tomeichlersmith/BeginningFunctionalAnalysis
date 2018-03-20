@@ -139,18 +139,18 @@
 		Therefore $B_D(x) \supseteq E$. \\
 		Any set with an infinite number of elements would not admit a finite cover of $r$-balls with $r < 1$ under the discrete metric.
 	
-	\item [2.1.13]
-	\begin{enumerate}[(a)]
-		\item Define $f_n(x) = x^n$ for all $n$.
-			Then $\{f_n\}_{n=1}^\infty$ has no convergent subsequence in $C([a,b])$.
-			And $\norm{f_n} = 1$ for all $n$ meaning $f_n \in \conj{B_1(0)}$.
-			Thus the closed unit ball is not compact because it is not sequentially compact.
-		\item Define $a_n$ as the sequence of zeros with $1$ as the $n$th position.
-			Then $\{a_n\}_{n=1}^\infty$ has no convergent subsequence.
-			And $\norm{a_n} = 1$ for all $n$ meaning $a_n \in \conj{B_1(0)}$.
-			Thus the closed unit ball is not compact because it is not sequentially compact.
-		\item %INF DIM TO NOT COMPACT CLOSED UNIT BALL PROOF
-	\end{enumerate}
+%	\item [2.1.13]
+%	\begin{enumerate}[(a)]
+%		\item Define $f_n(x) = x^n$ for all $n$.
+%			Then $\{f_n\}_{n=1}^\infty$ has no convergent subsequence in $C([a,b])$.
+%			And $\norm{f_n} = 1$ for all $n$ meaning $f_n \in \conj{B_1(0)}$.
+%			Thus the closed unit ball is not compact because it is not sequentially compact.
+%		\item Define $a_n$ as the sequence of zeros with $1$ as the $n$th position.
+%			Then $\{a_n\}_{n=1}^\infty$ has no convergent subsequence.
+%			And $\norm{a_n} = 1$ for all $n$ meaning $a_n \in \conj{B_1(0)}$.
+%			Thus the closed unit ball is not compact because it is not sequentially compact.
+%		\item %INF DIM TO NOT COMPACT CLOSED UNIT BALL PROOF
+%	\end{enumerate}
 	
 	\item [2.1.14] Assume $A \subseteq M$ is compact and $U \subseteq M$ is open.
 		Let $\mathcal{E} = \{E_\alpha\}$ be an open cover of $A \setminus U$.
@@ -180,30 +180,33 @@
 			Equivalently, if $A$ is compact, then $f(A)$ is bounded.
 	\end{enumerate}
 	
-	\item [2.2.1] Following the outline given in Example 2, we assume that $\mathcal{P}([a,b])$ is dense in $C([a,b])$.
-	\begin{enumerate}[(i)]
-		\item Define the function $\phi : \mathcal{Q}([a,b]) \to \bigcup_{n=1}^\infty \mathbb{Q}^n$ by
-			$$ \phi(a_0+a_1x+a_2x^2+\cdots + a_nx^n) = (a_0,a_1,a_2,\dots,a_n) $$
-			$\phi$ is a clear one-to-one correspondence.
-			Thus $\mathcal{Q}([a,b])$ has the same cardinality of $\bigcup_{n=1}^\infty \mathbb{Q}^n$ which is a countable union of countable sets.
-			Thus $\mathcal{Q}([a,b])$ is countable.
-		\item Let $p \in \mathcal{P}([a,b])$ and let $\epsilon > 0$ be given.
-			Then $p(x) = \sum_{i=0}^N a_i x^i$.
-			Define $q_i \in \mathbb{Q}$ such that $a_i < q_i < a_i+\epsilon/b^N$ for each $0 \leq i \leq N$.
-			Thus we define $q \in \mathcal{Q}$ as $q(x) = \sum_{i=0}^N q_i x^i$.
-			Then, using the supremum norm on $C([a,b])$,
-			$$ \norm{p-q}_\infty = \sup\left\{\sum_{i=0}^N (a_i-q_i)x^i : x \in [a,b]\right\} \leq \sum_{i=0}^N(a_i-q_i)b^N$$
-			%RATIONAL POLYNOMIALS DENSE IN REAL POLYNOMIALS
-	\end{enumerate}
+%	\item [2.2.1] Following the outline given in Example 2, we assume that $\mathcal{P}([a,b])$ is dense in $C([a,b])$.
+%	\begin{enumerate}[(i)]
+%		\item Define the function $\phi : \mathcal{Q}([a,b]) \to \bigcup_{n=1}^\infty \mathbb{Q}^n$ by
+%			$$ \phi(a_0+a_1x+a_2x^2+\cdots + a_nx^n) = (a_0,a_1,a_2,\dots,a_n) $$
+%			$\phi$ is a clear one-to-one correspondence.
+%			Thus $\mathcal{Q}([a,b])$ has the same cardinality of $\bigcup_{n=1}^\infty \mathbb{Q}^n$ which is a countable union of countable sets.
+%			Thus $\mathcal{Q}([a,b])$ is countable.
+%		\item Let $p \in \mathcal{P}([a,b])$ and let $\epsilon > 0$ be given.
+%			Then $p(x) = \sum_{i=0}^N a_i x^i$.
+%			Define $q_i \in \mathbb{Q}$ such that $a_i < q_i < a_i+\epsilon/b^N$ for each $0 \leq i \leq N$.
+%			Thus we define $q \in \mathcal{Q}$ as $q(x) = \sum_{i=0}^N q_i x^i$.
+%			Then, using the supremum norm on $C([a,b])$,
+%			$$ \norm{p-q}_\infty = \sup\left\{\sum_{i=0}^N (a_i-q_i)x^i : x \in [a,b]\right\} \leq \sum_{i=0}^N(a_i-q_i)b^N$$
+%			%RATIONAL POLYNOMIALS DENSE IN REAL POLYNOMIALS
+%	\end{enumerate}
 	
 	\item [2.2.2] Let $\mathbf{q} = (q,0,0,\dots) \in \ell^1$.
 		The set $Q = \{\mathbf{q} : q \in \mathbb{Q} \}$ is countable and dense in $\ell^1$.
-		$Q$ is in one-to-one correspondence with the countable set $\mathbb{Q}$ under the mapping $\mathbf{q} \to q$.
+		$Q$ is in one-to-one correspondence with the countable set $\mathbb{Q}$ under the mapping $\mathbf{q} \to q$. \\
 		Let $\mathbf{a} \in \ell^1$ and $\epsilon > 0$ be given.
 		Choose $q \in \mathbb{Q}$ such that $\norm{\mathbf{a}}_1 < q < \norm{\mathbf{a}}_1 + \epsilon$.
 		Then
-		$$\norm{\mathbf{a}-\mathbf{q}}_1 = \norm{\mathbf{a}}_1-|a_1|+|a_1-q| \leq \norm{\mathbf{a}}_1 - \norm{\mathbf{a}}_1 + |\norm{\mathbf{a}}_1 - q| = |\norm{\mathbf{a}}_1-q| < \epsilon$$
-		%FIX
+		\begin{equation*} \begin{split}
+			\norm{\mathbf{a}-\mathbf{q}}_1 & = \norm{\mathbf{a}}_1-(|a_1|-|a_1-q|) \\
+			& = \norm{\mathbf{a}}_1 - |q| \\
+			& < \epsilon
+		\end{split} \end{equation*}
 		Thus $\mathbf{q} \in Q \cap B_\epsilon(\mathbf{a})$.
 		Thus $\mathbf{a}$ is a limit point of $Q$.
 		Therefore, since $\mathbf{a}$ is arbitrary, all the points of $\ell^1$ are limit points of $Q$. \\
@@ -243,32 +246,32 @@
 		Therefore $(X,\inorm{\cdot})$ is complete. \\
 		$(\Leftarrow)$ Because $a > 0$ and $b > 0$ we are able to conclude
 		$$ a\norm{x} \leq \inorm{x} \leq b\norm{x} \quad\Longrightarrow\quad \frac{1}{b}\inorm{x} \leq \norm{x} \frac{1}{a}\inorm{x} $$
-		Then we use the preceding argument to conclude that $(X,\norm{\cdot})$ is complete if $(X,\inorm{\cdot})$ is complete. \\
-		On a side note, being equivalent norms is an equivalence relation on the set of all norms. \\
-		\textit{Proof:} Let $x$ be an arbitrary element in a normed space $X$ which has the norms $|\cdot|$, $\norm{\cdot}$, and $\inorm{\cdot}$.
-		\begin{itemize}
-			\item [Reflexive:] Set $a = b = 1$, then $\norm{x} \leq \norm{x} \leq \norm{x}$.
-				So $\norm{\cdot}$ is equivalent to itself.
-			\item [Symmetric:] If $a\norm{x} \leq \inorm{x} \leq b\norm{x}$, then (since $a > 0$ and $b > 0$) $(1/b)\inorm{x} \leq \norm{x} \leq (1/a)\inorm{x}$.
-			\item [Transitive:] If $a|x| \leq \norm{x} \leq b|x|$ and $c\norm{x} \leq \inorm{x} \leq d\norm{x}$, then $ac|x| \leq \inorm{x} \leq bd|x|$.
-		\end{itemize}
-		Thus being equivalent norms is an equivalence relation on the set of norms.
+		Then we use the preceding argument to conclude that $(X,\norm{\cdot})$ is complete if $(X,\inorm{\cdot})$ is complete.
+%		\\ On a side note, being equivalent norms is an equivalence relation on the set of all norms. \\
+%		\textit{Proof:} Let $x$ be an arbitrary element in a normed space $X$ which has the norms $|\cdot|$, $\norm{\cdot}$, and $\inorm{\cdot}$.
+%		\begin{itemize}
+%			\item [Reflexive:] Set $a = b = 1$, then $\norm{x} \leq \norm{x} \leq \norm{x}$.
+%				So $\norm{\cdot}$ is equivalent to itself.
+%			\item [Symmetric:] If $a\norm{x} \leq \inorm{x} \leq b\norm{x}$, then (since $a > 0$ and $b > 0$) $(1/b)\inorm{x} \leq \norm{x} \leq (1/a)\inorm{x}$.
+%			\item [Transitive:] If $a|x| \leq \norm{x} \leq b|x|$ and $c\norm{x} \leq \inorm{x} \leq d\norm{x}$, then $ac|x| \leq \inorm{x} \leq bd|x|$.
+%		\end{itemize}
+%		Thus being equivalent norms is an equivalence relation on the set of norms.
 	
-	\item [2.3.3] We will be using the fact that equivalence of norms is an equivalence relation (proved in 2.3.2 above).
-		Let $x = (x_1,x_2,\dots,x_n) \in \R^n$ be given.
-		\begin{enumerate}[(a)]
-			\item Define $m = \norm{x}_\infty = \max\{|x_i| : 1 \leq i \leq n\}$.
-				Then
-				$$ m \leq \sum_{i=1}^n |x_i| \leq \sum_{i=1}^n m = n m $$
-				which means
-				$$ \norm{x}_\infty \leq \norm{x}_1 \leq n\norm{x}_\infty $$
-				Similarly,
-				$$ m \leq \sqrt{\sum_{i=1}^n x_i^2} \leq \sqrt{\sum_{i=1}^n m^2} = n m $$
-				which means
-				$$ \norm{x}_\infty \leq \norm{x}_2 \leq n\norm{x}_\infty $$
-				Thus all three norms are equivalent (because being equivalent norms is transitive).
-			\item %EQUIV NORMS ON FINITE SPACES
-		\end{enumerate}
+%	\item [2.3.3] We will be using the fact that equivalence of norms is an equivalence relation (proved in 2.3.2 above).
+%		Let $x = (x_1,x_2,\dots,x_n) \in \R^n$ be given.
+%		\begin{enumerate}[(a)]
+%			\item Define $m = \norm{x}_\infty = \max\{|x_i| : 1 \leq i \leq n\}$.
+%				Then
+%				$$ m \leq \sum_{i=1}^n |x_i| \leq \sum_{i=1}^n m = n m $$
+%				which means
+%				$$ \norm{x}_\infty \leq \norm{x}_1 \leq n\norm{x}_\infty $$
+%				Similarly,
+%				$$ m \leq \sqrt{\sum_{i=1}^n x_i^2} \leq \sqrt{\sum_{i=1}^n m^2} = n m $$
+%				which means
+%				$$ \norm{x}_\infty \leq \norm{x}_2 \leq n\norm{x}_\infty $$
+%				Thus all three norms are equivalent (because being equivalent norms is transitive).
+%			\item %EQUIV NORMS ON FINITE SPACES
+%		\end{enumerate}
 	
 	\item [2.3.4] If $d$ is the discrete metric, then $(M,d)$ is complete.
 		The only way for $\{x_n\}_{n=1}^\infty$ to be Cauchy is for $x_n = x$ for all $n \geq N$ for some $N$.
