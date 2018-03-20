@@ -26,6 +26,18 @@
 		$$ r = \sum_{i=1}^\infty \frac{a_i}{2^i} \quad\text{where } a_i \in \{0,1\} $$
 		Then these $\{a_i\}$ represent the members of $\mathcal{B}\setminus\mathcal{B}_T$ (because they are non-terminating).
 		Thus $\mathcal{B}\setminus\mathcal{B}_T$ is uncountable which means $\mathcal{B}$ is also uncountable.
+	
+	\item [3.1.4] Let each member $r \in (0,1]$ be written in a binary expansion $r = 0.a_1a_2a_3\dots$.
+		Define $\phi:(0,1]\to(0,1]$ as
+		$$ \phi(0.a_1a_2a_3\dots) = 0.a_111a_211a_311\dots $$
+		$\phi$ is one-to-one. Suppose $\phi(0.a_1a_2a_3\dots) = \phi(0.b_1b_2b_3\dots)$, then
+		$$ 0.a_111a_211a_311\dots = 0.b_111b_211b_311\dots \quad\Longrightarrow\quad a_i = b_i \text{ for all } i \in \mathbb{N} $$
+		Thus $0.a_1a_2a_3\dots = 0.b_1b_2b_3\dots$. \\
+		Let $r \in \phi((0,1])$. Then $r = 0.r_111r_211r_311\dots$ which means
+		$$ \lim_{n\to\infty} \frac{s_n(r)}{n} \to \infty $$
+		So $r \in (0,1]\setminus S$.
+		Thus $\phi((0,1]) \subseteq (0,1]\setminus S$, which means $(0,1]\setminus S$ is uncountable.
+	
 \end{itemize}
 
 \end{document}
