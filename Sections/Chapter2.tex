@@ -302,7 +302,62 @@
 		\end{cases} $$
 		which is not a continuous function.
 	
-	\item [2.3.6]
+	\item [2.3.6] Define $f_n$ in the same way as 2.3.5 above.
+		Let $\epsilon > 0$ be given.
+		Choose $N$ such that $2/N < \epsilon^2$.
+		Then if $n,m \geq N$ we have
+		\begin{equation*} \begin{split}
+			\norm{f_n-f_m}_2^2 & = \int_0^1(x^n-x^m)^2dx = \int_0^1(x^{2n}+x^{2m}-2x^{n+m})dx = \frac{1}{2n+1}+\frac{1}{2m+1}-\frac{2}{n+m+1} \\
+				& < \frac{1}{N} + \frac{1}{N} < \epsilon^2
+		\end{split} \end{equation*}
+		So $\{f_n\}_{n=1}^\infty$ is Cauchy, but it converges point-wise to the function $f$ above which is not continuous.
+	
+	\item [2.3.7] Let $\{a^n\}_{n=1}^\infty \in \ell^1$ be Cauchy.
+		Let $\epsilon > 0$ be given.
+		Choose $N$ such that if $n,m \geq N$ we have
+		$$ \norm{a^n-a^m}_1 < \epsilon $$
+		Then using the definition of $\norm{\cdot}_1$ we know
+		$$ \sum_{i=1}^\infty |a^n_i-a^m_i| < \epsilon \quad\Longrightarrow\quad |a^n_i-a^m_i| < \epsilon \text{ for all } i $$
+		Thus, for each $i \in \mathbb{N}$, $\{a^n_i\}_{n=1}^\infty$ is a Cauchy sequence of reals.
+		Since $\R$ is complete, $\{a^n_i\}_{n=1}^\infty$ converges to some real, call it $a_i$. \\
+		Define $a = \{a_i\}_{i=1}^\infty$, then
+		$$ \norm{a}_1 = \lim_{J\to\infty} \sum_{i=1}^J |a_i| = \lim_{J\to\infty}\sum_{i=1}^J\lim_{n\to\infty} |a^n_i| $$
+		We can inter-change the limits and sums because the terms are positive reals, so
+		$$ \norm{a}_1 = \lim_{n\to\infty}\lim_{J\to\infty}\sum_{i=1}^J |a^n_i| = \lim_{n\to\infty}\norm{a^n}_1 $$
+		For some $M$ and each $n$, we know $\norm{a^n}_1 < M$, thus
+		$$ \norm{a}_1 < \lim_{n\to\infty} M = M $$
+		Thus $a \in \ell^1$. \\
+		Now we need to show that $\{a^n\}_{n=1}^\infty$ converges to $a$.
+		Let $\epsilon > 0$ be given.
+		Choose $N$ such that if $n,m \geq N$ we have
+		$$ \norm{a^n-a^m}_1 < \epsilon $$
+		Then for any $J$ and $n,m \geq N$ we have
+		$$ \sum_{i=1}^J |a^n_i-a^m_i| \leq \sum_{i=1}^\infty |a^n_i-a^m_i| = \norm{a^n-a^m}_1 < \epsilon $$
+		Fix $n > N$ and $J$, let $m \to \infty$, then
+		$$ \sum_{i=1}^J |a^n_i-a_i| = \lim_{m \to \infty} \sum_{i=1}^J |a^n_i-a^m_i| < \epsilon $$
+		This is true for arbitrary $J$, so
+		$$ \norm{a^n - a}_1 \leq \epsilon $$
+		showing that $\{a^n\}_{n=1}^\infty$ converges to $a \in \ell^1$.
+		
+	\item [2.3.8] Let $\{a^n\}_{n=1}^\infty \in \ell^\infty$ be Cauchy.
+		Let $\epsilon > 0$ be given.
+		Choose $N$ such that if $n,m \geq N$ we have
+		$$ \norm{a^n-a^m}_\infty < \epsilon $$
+		Then using the definition of $\norm{\cdot}_\infty$ we know
+		$$ \sup\{|a^n_i-a^m_i| \} < \epsilon \quad\Longrightarrow\quad |a^n_i-a^m_i| < \epsilon \text{ for all } i $$
+		Thus, for each $i \in \mathbb{N}$, $\{a^n_i\}_{n=1}^\infty$ is a Cauchy sequence of reals.
+		Since $\R$ is complete, $\{a^n_i\}_{n=1}^\infty$ converges to some real, call it $a_i$. \\
+		Define $a = \{a_i\}_{i=1}^\infty$, then
+		$$ \norm{a}_\infty = \sup_i\{|a_i|\} = \sup_i\left\{\left|\lim_{n\to\infty}a^n_i\right|\right\}
+			= \lim_{n\to\infty}\sup_i\{|a^n_i|\} < \infty $$
+		So $a \in \ell^\infty$. \\
+		Now we must show that $\{a^n\}_{n=1}^\infty$ converges to $a$.
+		Let $\epsilon > 0$ be given.
+		Choose $N$ such that if $n,m \geq N$ we have
+		$$ \norm{a^n-a^m}_\infty < \epsilon $$
+		Then letting $n > N$ we have
+		$$ \norm{a^n - a}_\infty = \sup_i\{|a^n_i - a_i|\} = \lim_{m\to\infty}\sup_i\{|a^n_i-a^m_i|\} = \lim_{m\to\infty} \norm{a^n-a^m}_\infty < \lim_{m\to\infty}\epsilon = \epsilon $$
+		Thus $\{a^n\}_{n=1}^\infty$ converges to $a$.
 	
 \end{itemize}
 
