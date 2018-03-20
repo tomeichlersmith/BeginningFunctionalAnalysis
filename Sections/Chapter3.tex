@@ -38,6 +38,22 @@
 		So $r \in (0,1]\setminus S$.
 		Thus $\phi((0,1]) \subseteq (0,1]\setminus S$, which means $(0,1]\setminus S$ is uncountable.
 	
+	\item [3.2.1] First we will prove a necessary set identity.
+		\begin{equation*} \begin{split}
+			A_1 \setminus \bigcup_{n=1}^\infty (A_1 \setminus A_n) & = A_1 \cap \left( \bigcup_{n=1}^\infty (A_1 \cap A_N^C) \right)^C \\
+				& = A_1 \cap \bigcap_{n=1}^\infty (A_1^C \cup A_n) \\
+				& = \bigcap_{n=1}^\infty (A_1 \cap (A_1^C \cup A_n)) \\
+				& = \bigcap_{n=1}^\infty A_n
+		\end{split} \end{equation*}
+		Now let $\mathcal{R}$ be a $\sigma$-ring.
+		Suppose $A_n \in \mathcal{R}$ for all $n \in \mathbb{N}$.
+		Then $A_1 \setminus A_n \in \mathcal{R}$ for all $n \in \mathbb{N}$.
+		Thus $\bigcup_{n=1}^\infty (A_1 \setminus A_n) \in \mathcal{R}$.
+		Therefore
+		$$ \bigcap_{n=1}^\infty A_n = A_1 \setminus \bigcup_{n=1}^\infty (A_1 \setminus A_n) \in \mathcal{R} $$
+	
+	\item [3.2.2]
+	
 \end{itemize}
 
 \end{document}
