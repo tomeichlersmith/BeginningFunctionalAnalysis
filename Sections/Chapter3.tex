@@ -1,0 +1,31 @@
+\documentclass[../../Solutions.tex]{subfiles}
+
+\begin{document}
+
+\begin{itemize}
+	\item [3.1.1] Suppose $\mathcal{B}$ is countable.
+		Then enumerate the elements according to the one-to-one correspondence with $\mathbb{N}$.
+		\begin{equation*} \begin{split}
+			a_1 & = \{a_{11},a_{12},a_{13},\dots\} \\
+			a_2 & = \{a_{21},a_{22},a_{23},\dots\} \\
+			a_3 & = \{a_{31},a_{32},a_{33},\dots\}
+		\end{split} \end{equation*}
+		Define a new sequence in $b \in \mathcal{B}$ as
+		\begin{equation*} b_n = \begin{cases}
+			1 & \text{if } a_{nn} = 0 \\
+			0 & \text{if } a_{nn} = 1
+		\end{cases} \end{equation*}
+		But then $b$ cannot be represented in the enumeration above.
+		Thus $\mathcal{B}$ cannot be countable.
+	
+	\item  [3.1.2] $\mathcal{B}_T$ is countable because each member $\{a_i\} \in \mathcal{B}_T$ can be identified with a terminating series
+		$$ \{a_i\} \to \sum_{i=1}^\infty \frac{a_i}{2^i} $$
+		which means each element of $\mathcal{B}_T$ is identified with a unique rational.
+		Thus $\mathcal{B}_T$ is in one-to-one correspondence with a subset of $\mathbb{Q}$. \\
+		Now, each number $r \in (0,1)$ can be written as a non-terminating binary expansion
+		$$ r = \sum_{i=1}^\infty \frac{a_i}{2^i} \quad\text{where } a_i \in \{0,1\} $$
+		Then these $\{a_i\}$ represent the members of $\mathcal{B}\setminus\mathcal{B}_T$ (because they are non-terminating).
+		Thus $\mathcal{B}\setminus\mathcal{B}_T$ is uncountable which means $\mathcal{B}$ is also uncountable.
+\end{itemize}
+
+\end{document}
