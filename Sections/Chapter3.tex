@@ -52,7 +52,49 @@
 		Therefore
 		$$ \bigcap_{n=1}^\infty A_n = A_1 \setminus \bigcup_{n=1}^\infty (A_1 \setminus A_n) \in \mathcal{R} $$
 	
-	\item [3.2.2]
+	\item [3.2.2] Let $\mu$ be a non-negative and additive function on a ring $\mathcal{R}$.
+	\begin{enumerate}[(a)]
+		\item Let $A,B \in \mathcal{R}$ with $A \subseteq B$, then
+			$$ B = A \cup (B\setminus A) $$
+			Thus, using additivity and non-negativity, we can conclude
+			$$ \mu(A) \leq \mu(A)+\mu(B\setminus A) = \mu(A\cup(B\setminus A)) = \mu(B) $$
+			Therefore $\mu$ is monotone.
+		\item We can apply induction to part (a) above.
+			Assume
+			$$ \mu\Big(\bigcup_{k=1}^n A_k \Big) \leq \sum_{k=1}^n \mu(A_k) $$
+			Then, using part (a) in the first inequality,
+			\begin{equation*} \begin{split}
+				\mu\Big(\bigcup_{k=1}^{n+1} A_k \Big) & \leq \mu\Big(\bigcup_{k=1}^{n} A_k \Big) + \mu(A_{n+1}) \\
+					& \leq \sum_{k=1}^{n} \mu(A_k) + \mu(A_{n+1}) = \sum_{k=1}^{n+1} \mu(A_k)
+			\end{split} \end{equation*}
+			%MORE DETAIL
+	\end{enumerate}
+	
+	\item [3.2.3] Assume $\mu$ is countably additive on the ring $\mathcal{R}$.
+		First, we prove a helpful identity.
+		If $A \subseteq B$ inside $\mathcal{R}$, then
+		$$ \mu(A) + \mu(B\setminus A) = \mu(A \cup B\setminus A) = \mu(B) $$
+		Thus
+		$$ \mu(B\setminus A) = \mu(B) - \mu(A) $$
+		Now, suppose $A_n, A \in \mathcal{R}$ satisfy
+		$$ A_1 \subseteq A_2 \subseteq A_3 \subseteq \cdots \quad\text{and}\quad A = \bigcup_{n=1}^\infty A_n $$
+		Define $B_1 = A_1$ and $B_n = A_n \setminus A_{n-1}$ for all $n \geq 2$.
+		Then $B_n \in \mathcal{R}$, $A = \bigcup_{n=1}^\infty B_n$, and $B_i \cap B_j = \emptyset$ if $i \neq j$.
+		Thus, for any $N \in \mathbb{N}$ (and using our helpful identity from above)
+		\begin{equation*} \begin{split}
+			\mu\Big(\bigcup_{n=1}^N B_n\Big) & = \sum_{n=1}^N \mu(B_n) \\
+				& = \mu(A_1) + \mu(A_2 \setminus A_1) + \mu(A_3 \setminus A_2) + \cdots + \mu(A_N\setminus A_{N-1}) \\
+				& = \mu(A_1) + \mu(A_2) - \mu(A_1) + \mu(A_3) - \mu(A_2) + \cdots + \mu(A_N) - \mu(A_{N-1}) \\
+				& = \mu(A_N)
+		\end{split} \end{equation*}
+		Since $\mu$ is countably additive, we can exchange $\mu$ and the limit with respect to $N$.
+		Thus,
+		\begin{equation*} \begin{split}
+			\mu(A) & = \mu\Big(\lim_{N\to\infty}\bigcup_{n=1}^N B_n\Big) \\
+				& = \lim_{N\to\infty}\mu\Big(\bigcup_{n=1}^N B_n\Big) \\
+				& = \lim_{N\to\infty}\mu(A_N)
+		\end{split} \end{equation*}
+		proving the desired conclusion.
 	
 \end{itemize}
 
