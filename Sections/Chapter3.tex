@@ -96,6 +96,105 @@
 		\end{split} \end{equation*}
 		proving the desired conclusion.
 	
+	\item [3.2.7]
+	\begin{enumerate}[(a)]
+		\item %DRAW A & B
+			We calculate $D(A,B)$ as the area of $S(A,B)$.
+			$$ D(A,B) = m([0,1]\times[0,1])+m([1,4]\times[1,2])+m([0,4]\times[2,10]) = 36 $$
+		\item First, we show that $S(A,B) = S(B,A)$.
+			$$ S(A,B) = (A\setminus B)\cup(B\setminus A) = (B\setminus A)\cup(A\setminus B) = S(B,A) $$
+			Then the desired conclusion follows quickly.
+			$$ D(A,B) = m^*(S(A,B)) = m^*(S(B,A)) = D(B,A) $$
+		\item $D(A,B) = 0$ does \emph{not} imply that $A = B$. For example in $\R$, $D([0,1],[0,1)) = 0$ but $[0,1] \neq [0,1)$.
+		\item Let $x \in A\setminus C$.
+			Then $x \in A$ and $x \not\in C$.
+			If $x \in B$, then $x \in B\setminus C$.
+			If $x \not\in B$, then $x \in A\setminus B$.
+			Thus $x \in (A\setminus B)\cup(B\setminus C)$.
+			Similarly, if $x \in C\setminus A$, $x \in (C\setminus B)\cup(B\setminus A)$.
+			Then we can conclude
+			$$ x \in (A\setminus C)\cup(C\setminus A) \Longrightarrow x \in (A\setminus B)\cup(B\setminus C)\cup(C\setminus B)\cup(B\setminus A) = (A\setminus B)\cup(B\setminus A)\cup(B\setminus C)\cup(C\setminus B) $$
+			Which then (applying the definition of symmetric difference) means
+			$$ S(A,C) \subseteq S(A,B)\cup S(B,C) $$
+			Thus, since $m^*$ is monotone and finitely additive,
+			\begin{equation*} \begin{split}
+				D(A,C) & = m^*(S(A,C)) \\
+					& \leq m^*(S(A,B)\cup S(B,C)) \\
+					& = m^*(S(A,B))+m^*(S(B,C)) \\
+					& = D(A,B)+D(B,C)
+			\end{split} \end{equation*}
+		\item We can conclude this containment using basic set operations.
+			\begin{equation*} \begin{split}
+				(A_1 \cup A_2)\setminus(B_1\cup B_2) & = (A_1\cup A_2)\cap(B_1^C\cap B_2^C) \\
+					& = (A_1\cap B_1^C \cap B_2^C)\cup(A_2\cap B_1^C\cap B_2^C) \\
+					& \subseteq (A_1 \cap B_1^C)\cup(A_2\cap B_2^C) \\
+					& = (A_1\setminus B_1)\cup(A_2\setminus B_2)
+			\end{split} \end{equation*}
+			which means
+			$$ S(A_1\cup A_2,B_1\cup B_2) \subseteq S(A_1,B_1)\cup S(A_2,B_2) $$
+			Thus, since $m^*$ is monotone and finitely additive,
+			\begin{equation*} \begin{split}
+				D(A_1\cup A_2,B_1\cup B_2) & = m^*(S(A_1\cup A_2,B_1\cup B_2)) \\
+				& \leq m^*(S(A_1,B_1)\cup S(A_2,B_2)) \\
+				& = m^*(S(A_1,B_1))+m^*(S(A_2,B_2)) \\
+				& = D(A_1,B_1)+D(A_2,B_2)
+			\end{split} \end{equation*}
+	\end{enumerate}
+	
+	\item [3.2.8] We will not go through displaying that the binary operations defined in this way follow all the requirements of a commutative ring.
+	(Associativity and Distributivity are particularly tedious tasks in set manipulation)
+	However, we would like to point out a few interesting notes.
+	\begin{itemize}
+		\item The additive identity in this ring is the empty set because $S(A,\emptyset) = A$ for all $A$.
+		\item The additive inverse of each element is itself because $S(A,A) = \emptyset$ for all $A$.
+		\item The multiplicative identity in this ring is $\R^n$ because $A\cap \R^n = A$ for all $A$.
+		\item No element has a multiplicative inverse (expect the identity) because $A\cap B \subseteq A$ for all $A,B$.
+		\item Moreover, each element (expect the $\R^n$) has several (indeed infinite) zero divisors.
+			Any $B \subseteq A^C$ is a zero divisor of $A$ because $A\cap B \subseteq A\cap A^C = \emptyset$.
+	\end{itemize}
+	These notes show that $2^{(\R^n)}$ under intersection and symmetric difference is a commutative ring with unity (but not an integral domain).
+	
+	\item [3.2.9]
+	\begin{enumerate}[(a)]
+		\item Since $\R^n$ is finite-dimensional, we can use any norm we wish (because all norms are equivalent).
+			We choose $\norm{\cdot}_\infty$ because it has $r$-balls that are equivalent to intervals as defined in the text.
+			Then, if $x \in \R^n$ and $r > 0$, $B_r(x) \in \mathcal{E} \subseteq \mathcal{M}_F$.
+			Let $U \subseteq \R^n$ be open.
+			Define $U_Q = U\cap\mathbb{Q}^n$.
+			For each $q \in U_Q$, define
+			$$ r_q = \sup\{r > 0 : B_r(q) \subseteq U \} $$
+			Then $B_{r_q}(q) \subseteq U$ for each $q$ and
+			$$ \bigcup_{q \in U_Q} B_{r_q}(q) \subseteq U $$
+			Now let $x \in U$.
+			Then there exists $r > 0$ such that $B_r(x) \subseteq U$.
+			Choose $q \in \mathbb{Q}^n$ such that
+			$$ \norm{x-q}_\infty < \frac{r}{2} $$
+			Then
+			$$ x \in B_{r/2}(q) \subseteq B_{r_q}(q) \subseteq \bigcup_{q \in U_Q} B_{r_q}(q) $$
+			showing that
+			$$ U \subseteq \bigcup_{q \in U_Q} B_{r_q}(q) $$
+			Combining these two containments, we obtain
+			$$ U = \bigcup_{q \in U_Q} B_{r_q}(q) $$
+			Therefore, since $U_Q \subseteq \mathbb{Q}^n$ is countable, we have written $U$ as a countable union of members of $\mathcal{M}_F$, meaning $U \in \mathcal{M}$.
+		\item Let $F \subseteq \R^n$ be closed.
+			Then $F^C$ is open and thus (by part (a)) $F^C \in \mathcal{M}$.
+			Since $\mathcal{M}$ is a $\sigma$-ring, $F = (F^C)^C \in \mathcal{M}$.
+		\item Let $\{E_i\}_{i=1}^\infty$ be a collection of open or closed sets.
+			Then by parts (a) and (b), each $E_i$ is in $\mathcal{M}$, and since $\mathcal{M}$ is a $\sigma$-ring,
+			$$ \bigcup_{i=1}^\infty E_i \in \mathcal{M} $$
+			Because complements of sets in $\mathcal{M}$ are in $\mathcal{M}$,
+			$$ \bigcap_{i=1}^\infty E_i = \Big(\bigcup_{i=1}^\infty E_i^C\Big)^C \in \mathcal{M} $$
+			Thus countable unions and intersections of open and closed sets are in $\mathcal{M}$.
+	\end{enumerate}
+	
+	\item [3.2.10] The usual definition of the Cantor set is
+		$$ C = \bigcap_{i=1}^\infty \Big( \bigcup_{j=1}^{2^i} I^i_j \Big) $$
+		where the $I^i_j \subseteq [0,1]$ are the intervals where the middle third is removed from the $i$th set to produce the $(i+1)$th step.
+		These $I^i_j$ are disjoint in the $j$ coordinate, specifically
+		$$ I^i_m \cap I^i_n = \emptyset \quad\text{if } m \neq n $$
+		Thus $C$ is a countable intersection of sets that are finite unions of disjoint intervals, which means $C \in \mathcal{M}$. \\
+		Since $C$ has no intervals contained in it, $C$ has zero measure.
+	
 \end{itemize}
 
 \end{document}
