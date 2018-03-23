@@ -195,6 +195,121 @@
 		Thus $C$ is a countable intersection of sets that are finite unions of disjoint intervals, which means $C \in \mathcal{M}$. \\
 		Since $C$ has no intervals contained in it, $C$ has zero measure.
 	
+	\item [3.3.1] Let $a \in \R$ be given.
+		The set $(a,\infty)\subseteq\R$ is open.
+		Since $f:\R^n\to\R$ is continuous,
+		$$ f^{-1}((a,\infty)) = \{x : f(x) > a \} \R^n $$
+		is open and therefore measurable by 3.2.9(a).
+		Since $a$ is arbitrary, $f$ is a measurable function.
+	
+	\item [3.3.2] Let $A \subseteq \R^n$ be not measurable (exists by the Vitali Theorem).
+		Then define $f:\R^n\to\R$ by
+		\begin{equation*}
+			f(x) = \begin{cases}
+				1 & \text{if } x \in A \\
+				-1 & \text{otherwise}
+			\end{cases}
+		\end{equation*}
+		Then $A = \{ x : f(x) > 0 \}$ is not measurable because $A$ is not measurable.
+		Thus $f$ is not measurable.
+		But $|f|$ is a constant function, so it is measurable.
+	
+	\item [3.3.3] Characteristic functions are integrable if and only if the set it characterizes is measurable.
+		The characteristic function of the rationals is integrable because $\mathbb{Q}\cap[0,1]$ is measurable.
+		$$ \int_{[0,1]} \chi_{\mathbb{Q}} dm = m([0,1]\cap\mathbb{Q}) = 0 $$
+	
+	\item [3.3.4] Assume $f$ is measurable.
+		Then $L_a = \{x : f(x) < a \}$ and $G_a = \{x : f(x) > a \}$ are measurable for all $a$.
+		Let $a \in \R$ be given. We have
+		$$ |f(x)| > a \iff f(x) > a \text{  or  } f(x) < -a $$
+		Then
+		$$ \{x : |f(x)|>a\} = \{x : f(x) > a \}\cup\{x : f(x) < -a\} = G_a\cup L_{-a} $$
+		which is measurable because the union of two measurable sets is measurable.
+		Since $a$ is arbitrary, $|f|$ is measurable.
+		
+	\item [3.3.7] By definition, $f \in \mathcal{L}(\R^n)$ if and only if
+		$$ \int_{\R^n} f_+ dm < \infty \text{  and  } \int_{\R^n} f_- dm < \infty $$
+		Since both of these integrals are finite, there sum is finite, so (using Theorem 3.11(a))
+		$$ \int_{\R^n} |f| dm = \int_{\R^n} (f_+ + f_-) dm = \int_{\R^n} f_+ dm + \int_{\R^n} f_- dm < \infty $$
+		which proves the desired conclusion.
+	
+	\item [3.4.1] Define $E_k = [-1/2k,1/2k] \subseteq \R$ and $s_k:[-1,1]\to\R$ as
+		$$ s_k(x) = k\chi_{E_k}(x) $$
+		Then 
+		$$ \int_{[-1,1]} s_k dm = 1 \quad\text{for all } k \in \mathbb{N} $$
+		which means $\liminf_{k\to\infty} \int_{[-1,1]} s_k dm = 1$.
+		Also $s = \liminf_{k\to\infty} s_k$ is equal to the zero function almost everywhere, which means
+		$$ \int_{[-1,1]} s dm = 0 $$
+		Thus
+		$$ \int_{[-1,1]} s dm = 0 < 1 = \liminf_{k\to\infty} \int_{[-1,1]} s_k dm $$
+		which is an example of strict inequality holding in Fatou's Lemma.
+	
+	\item [3.4.2] Use the function sequence defined above.
+		It is shown in 3.4.1 that the limit of integrals of this sequence is not equal to the integral of the limit.
+		This sequence does not have an integrable function $g$ that bounds it.
+	
+	\item [3.6.3] Let $y \geq 0$ and $1 < p < \infty$ be fixed.
+		Define $f:[0,\infty]\to\R$ as
+		$$ f(x) = xy - \frac{x^p}{p} $$
+		Then $f'(x) = y - x^{p-1}$, which is zero when $x = y^{1/(p-1)}$.
+		Thus $f$ attains a maximum at $y^{1/(p-1)}$ meaning $f(x) \leq f(y^{1/(p-1)})$ for all $x \geq 0$.
+		Thus
+		$$ xy - \frac{x^p}{p} \leq y^{1+\frac{1}{p-1}} - \frac{1}{p}y^{\frac{p}{p-1}} $$
+		Rearranging (noting that the H\"older conjugate of $p$ is given by $1/q = 1-1/p$) gives
+		$$ xy \leq \frac{x^p}{p} + \left(1-\frac{1}{p}\right)y^{\frac{1}{1-1/p}} = \frac{x^p}{p} + \frac{y^q}{q} $$
+	
+	\item [3.6.4] Let $f \in L^p(\mu)$ and $1 < p < \infty$.
+		Let $q$ be the H\"older conjugate of $p$.
+		Then
+		$$ (p-1)q = (p-1)\frac{p}{p-1} = p $$
+		So following the definition of $\norm{\cdot}_p$ we have
+		\begin{equation*} \begin{split}
+			\norm{|f|^{p-1}}_q & = \Bigg(\int_{X} |f|^{(p-1)q} d\mu\Bigg)^\frac{1}{q} \\
+				& = \Big(\int_{X} |f|^{(p-1)q} d\mu\Big)^\frac{p-1}{(p-1)q} = \big(\norm{f}_{(p-1)q}\big)^{p-1} \\
+				& = \Big(\int_{X} |f|^p d\mu \Big)^\frac{p-1}{p} = \big(\norm{f}_p\big)^{p-1}
+		\end{split} \end{equation*}
+		Since $f,g \in L^p(\mu)$ means that $f+g \in L^p(\mu)$ we can conclude
+		$$ \norm{|f+g|^{p-1}}_q = \big(\norm{f+g}_{(p-1)q}\big)^{p-1} = \big(\norm{f+g}_p\big)^{p-1} $$
+	
+	\item [3.6.5] Let $f,g \in L^\infty$ and suppose $M > 0$ satisfies $|f(x)| \leq M$ almost everywhere and $N > 0$ satisfies $|g(x)| \leq N$ almost everywhere.
+		Then if $\lambda$ is a scalar, $|\lambda f(x)| = |\lambda||f(x)| \leq |\lambda|M$ almost everywhere, so $\lambda f \in L^\infty$.
+		Also, $|f(x)+g(x)| \leq |f(x)|+|g(x)| \leq M+N$ almost everywhere, so $f+g \in L^\infty$.
+		Thus $L^\infty$ is a linear space. \\
+		Now we will show that $\norm{\cdot}_\infty$ satisfies the requirements to be a norm.
+		\begin{enumerate}[(i)]
+			\item $\norm{f}_\infty \geq 0$ for all $f$ because $|f(x)| \geq 0$ for all $f$ and all $x$.
+			\item $\norm{f}_\infty = 0$ if and only if $0 \leq |f(x)| \leq 0$ almost everywhere which means $f$ is in the same equivalence class as the zero function.
+			\item $\norm{\lambda f}_\infty = \inf\{M : |\lambda f(x)| \leq M\} = |\lambda|\inf\{M:|f(x)|\leq M\} = |\lambda|\norm{f}_\infty$
+			\item $\norm{f+g}_\infty = \inf\{M:|f(x)+g(x)|\leq M\} \leq \inf\{M:|f(x)|+|g(x)|\leq M\} \leq \inf\{M:|f(x)|\leq M\} + \inf\{M:|g(x)|\leq M\} = \norm{f}_\infty + \norm{g}_\infty$
+		\end{enumerate}
+	
+	\item [3.6.9] We will use the fact that if a function is both Lebesgue and Riemann integrable, then the value of the two integrals are the same.
+	\begin{enumerate}[(a)]
+		\item These functions are simple functions to integrate.
+		\begin{equation*} \begin{split} 
+			\norm{f}_p^p & = \int_{-1}^{1} |1+x|^p dx = \int_0^2 u^p du = \frac{2^{p+1}}{p+1} \\
+			\norm{g}_p^p & = \int_{-1}^{1} |1-x|^p dx = \int_{-1}^1 |x-1|^p dx = \int_0^2 u^p du = \frac{2^{p+1}}{p+1} \\
+			\norm{f+g}_p^p & = \int_{-1}^1 |1+x+1-x|^p dx = \int_{-1}^1 2^p dx = 2^{p+1} \\
+			\norm{f-g}_p^p & = \int_{-1}^1 |1+x-1+x|^p dx = \int_{-1}^1 |2x|^p dx = \frac{2^{p+1}}{p+1}
+		\end{split} \end{equation*}
+		\item We can calculate this conclusion simply from the parallelogram equality.
+			$$ \norm{f+g}_p^2 + \norm{f-g}_p^2 = 2\norm{f}_p^2 + 2\norm{g}_p^2 $$
+			$$ \left(2^{p+1}\right)^{\frac{2}{p}} + \left(\frac{2^{p+1}}{p+1}\right)^{\frac{2}{p}} = 2\left(\frac{2^{p+1}}{p+1}\right)^{\frac{2}{p}} + 2\left(\frac{2^{p+1}}{p+1}\right)^{\frac{2}{p}} $$
+			$$ 3\left(\frac{2^{p+1}}{p+1}\right)^{\frac{2}{p}} = \left(2^{p+1}\right)^{\frac{2}{p}} $$
+			$$ 3\left(2^{p+1}\right)^{\frac{2}{p}} = \left(2^{p+1}(p+1)\right)^{\frac{2}{p}} $$
+			$$ 3 = (p+1)^{\frac{2}{p}} $$
+			This equality is satisfied with $p = 2$.
+			$$ (2+1)^\frac{2}{2} = 3^1 = 3 $$
+		\item Note that for $p \geq 1$,
+			$$ \frac{\ln(p+1)}{p} > \frac{\ln(p+1)}{(p+1)\ln(p+1)} = \frac{1}{p+1} $$
+			Let $f:[1,\infty)\to\R$ be defined as $f(p) = (p+1)^{2/p} - 3$.
+			Then
+			$$ f'(p) = \frac{2(p+1)^{2/p}}{p}\left(\frac{1}{p+1} - \frac{\ln(p+1)}{p}\right) $$
+			and for $p \geq 1$, we have $f'(p) < 0$.
+			Thus $f$ is a strictly decreasing function in $p$ and therefore can only have one zero: $p = 2$.
+		\item %FUNCTION TRANSFORM
+	\end{enumerate}
+	
 \end{itemize}
 
 \end{document}
