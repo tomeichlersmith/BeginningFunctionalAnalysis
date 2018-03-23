@@ -307,7 +307,28 @@
 			$$ f'(p) = \frac{2(p+1)^{2/p}}{p}\left(\frac{1}{p+1} - \frac{\ln(p+1)}{p}\right) $$
 			and for $p \geq 1$, we have $f'(p) < 0$.
 			Thus $f$ is a strictly decreasing function in $p$ and therefore can only have one zero: $p = 2$.
-		\item %FUNCTION TRANSFORM
+		\item Choose $r > 0$ and $c$ such that $B_r(c) \subseteq I$.
+			Define $f,g:I\to\R$ by
+			\begin{equation*} \begin{split}
+				f(x) &= \begin{cases}
+					1+\frac{1}{r}(x-c) & x \in B_r(c) \\
+					0 & \text{otherwise}
+				\end{cases} \\
+				g(x) &= \begin{cases}
+					1-\frac{1}{r}(x-c) & x \in B_r(c) \\
+					0 & \text{otherwise}
+				\end{cases}
+			\end{split} \end{equation*}
+			Then $f$ and $g$ yield the same results as those previously defined for $[-1,1]$.
+			\begin{equation*} \begin{split} 
+				\norm{f}_p^p & = \int_{c-r}^{c+r} |1+\frac{1}{r}(x-c)|^p dx = r\int_{-1}^{1} |1+x|^p dx = r\frac{2^{p+1}}{p+1} \\
+				\norm{g}_p^p & = \int_{c-r}^{c+r} |1-\frac{1}{r}(x-c)|^p dx = r\int_{-1}^{1} |1-x|^p dx = r\frac{2^{p+1}}{p+1} \\
+				\norm{f+g}_p^p & = \int_{c-r}^{c+r} |1+\frac{1}{r}(x-c)+1-\frac{1}{r}(x-c)|^p dx = \int_{c-r}^{c+r} 2^p dx = r2^{p+1} \\
+				\norm{f-g}_p^p & = \int_{c-r}^{c+r} |1+\frac{1}{r}(x-c)-1+\frac{1}{r}(x-c)|^p dx = r\int_{-1}^{1} |2x|^p dx = r\frac{2^{p+1}}{p+1}
+			\end{split} \end{equation*}
+			which, combined with the parallelogram equality, produces the same restriction on $p$:
+			$$ (p+1)^{\frac{2}{p}} = 3 $$
+			Then parts (b) and (c) follow.
 	\end{enumerate}
 	
 \end{itemize}
