@@ -4,11 +4,78 @@
 
 \begin{itemize}
 
-	\item [4.1.1] This is a simple exercise of showing that the norm of each of these functions is $1$ and the inner product between any two distinct is zero.
-		Since the Lebesgue and Riemann integrals are equal for functions that are integrable in both theories, we calculate the Riemann integrals.
-		\begin{equation*} \begin{split}
-			\int_{-\pi}^{\pi} \left(\frac{1}{\sqrt{2\pi}}\right)^2 dx &= 1 \\
-		\end{split} \end{equation*}	
+%	\item [4.1.1] This is a simple exercise of showing that the norm of each of these functions is $1$ and the inner product between any two distinct is zero.
+%		Since the Lebesgue and Riemann integrals are equal for functions that are integrable in both theories, we calculate the Riemann integrals.
+%		\begin{equation*} \begin{split}
+%			\int_{-\pi}^{\pi} \left(\frac{1}{\sqrt{2\pi}}\right)^2 dx &= 1 \\
+%			\int_{-\pi}^{\pi} \frac{\cos(nx)\cos(mx)}{\pi} dx &= \\
+%			\int_{-\pi}^{\pi} \frac{\sin(nx)\sin(mx)}{\pi} dx &= \\
+%			\int_{-\pi}^{\pi} \frac{\sin(nx)\cos(mx)}{\pi} dx &= 
+%		\end{split} \end{equation*}	
+
+	\item [4.1.2]
+	\begin{enumerate}[(a)]
+		\item We simply need to calculate the coefficients as defined at the beginning of section 4.1.
+			\begin{equation*} \begin{split} 
+				a_0 &= \frac{1}{\pi} \int_{-\pi}^{0} dx = 1 \\
+				a_k &= \frac{1}{\pi} \int_{-\pi}^{0} \cos(kx) dx = \frac{1}{\pi}\left[\frac{1}{k}\sin(kx)\right]_{-\pi}^{0} = 0 \\
+				b_k &= \frac{1}{\pi} \int_{-\pi}^{0} \sin(kx) dx = \frac{1}{\pi}\left[-\frac{1}{k}\cos(kx)\right]_{-\pi}^{0} = \frac{1}{\pi}\left(\frac{(-1)^k-1}{k}\right)
+			\end{split} \end{equation*}
+			Putting these calculations together with the expansion given, we have
+			\begin{equation*}
+				f(x) = \frac{1}{2}+\frac{1}{\pi}\sum_{k=1}^\infty \frac{(-1)^k-1}{k} \sin(kx)
+			\end{equation*}
+		\item %CONV IN MEAN
+		\item $\sin(n0) = 0$ for all $n$, so the series gives a value of $1/2$ at $x = 0$, but $f(0)=0$. So this series does not converge pointwise.
+			Since pointwise convergence implies uniform convergence, this series does not converge uniformly either.
+		\item $f$ is a vertical shift (of $1/2$) from an odd function.
+			All the cosine terms are even functions so they cannot contribute to making the series ``get closer" to $f$.
+	\end{enumerate}
+	
+	\item [4.1.4]
+	\begin{enumerate}[(a)]
+		\item Assume $\{f_n\}_{n=1}^\infty$ converges to $f$ uniformly.
+			Let $\epsilon > 0$ and $x \in [a,b]$ be given.
+			Choose $N \in \mathbb{N}$ such that if $n \geq N$ and $y \in [a,b]$, then
+			$$ |f_n(y)-f(y)| < \epsilon $$
+			Thus we have (for a particular $y$)
+			$$ |f_n(x)-f(x)| < \epsilon $$
+			Therefore $\{f_n\}_{n=1}^\infty$ converges to $f$ pointwise.
+		\item Define $\{f_n\}_{n=1}^\infty$ as
+			$$ f_n(x) = \frac{1}{nx} $$
+			This sequence converges to $f(x) = 0$ on $(0,1]$ pointwise (but not uniformly).
+		\item Assume $\{f_n\}_{n=1}^\infty$ converges to $f$ uniformly.
+			Let $\epsilon > 0$ be given.
+			Choose $N \in \mathbb{N}$ such that if $n \geq N$ and $x \in [a,b]$ we have
+			$$ |f_n(x)-f(x)| < \sqrt{\frac{\epsilon}{b-a}} $$
+			Then
+			$$ \int_{[a,b]} [f_n(x)-f(x)]^2 dm < \int_{[a,b]} \left(\sqrt{\frac{\epsilon}{b-a}}\right)^2 dm = \frac{\epsilon}{b-a}(b-a) = \epsilon $$
+			Therefore $\{f_n\}_{n=1}^\infty$ converges to $f$ in mean.
+		\item Define $\{f_n\}_{n=1}^\infty$ as
+			\begin{equation*}
+				f_n(x) = \begin{cases}
+					n & x \in [-\frac{1}{n},0)\cup(0,\frac{1}{n}] \\
+					1 & x = 0 \\
+					0 & \text{otherwise}
+				\end{cases}
+			\end{equation*}
+			This sequence converges pointwise to
+			\begin{equation*}
+				f_n(x) = \begin{cases}
+					1 & x = 0 \\
+					0 & \text{otherwise}
+				\end{cases}
+			\end{equation*}
+			However
+			\begin{equation*}
+				\int_{[-1,1]} (f_n-f)^2 dm = \int_{[-1,1]} f_n^2 dm = 1
+			\end{equation*}
+			for all $n$, which does not go to zero as $n$ goes to infinity.
+		\item Take the previous series from 4.1.2 as the counterexample.
+			It converges in mean but not pointwise.
+	\end{enumerate}
+	
+	\item [4.1.6]
 
 \end{itemize}
 
