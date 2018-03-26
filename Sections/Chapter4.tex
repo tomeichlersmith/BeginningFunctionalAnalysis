@@ -118,6 +118,40 @@
 		Thus $c_n$ must equal zero.
 		Therefore, $\sum_{i=1}^{n-1} c_if_i = 0$ which means all of the $c_i$ are zero (by assumption).
 		Thus $\{f_i\}_{i=1}^n$ is linearly independent (when orthonormal) for all $n$ by the Principle of Mathematical Induction.
+	
+	\item [4.2.4] This conclusion is shown a simple calculation.
+		We point out that $\norm{g}^2 = \langle g,g \rangle$ and the definition of two vectors $h,k$ being orthogonal is $\langle h,k \rangle = 0$.
+		\begin{equation*} \begin{split}
+			\left\langle f-\frac{\langle f,g \rangle}{\langle g,g \rangle}g , \frac{\langle f,g \rangle}{\langle g,g \rangle}g \right\rangle
+				&= \left\langle f, \frac{\langle f,g \rangle}{\langle g,g \rangle}g \right\rangle - \left\langle \frac{\langle f,g \rangle}{\langle g,g \rangle}g,\frac{\langle f,g \rangle}{\langle g,g \rangle}g \right\rangle \\
+				&= \frac{\conj{\langle f,g \rangle}}{\conj{\langle g,g \rangle}} \langle f,g \rangle - \frac{\langle f,g \rangle \conj{\langle f,g \rangle}}{\langle g,g \rangle \conj{\langle g,g \rangle}}\langle g,g \rangle \\
+				&= \frac{\langle f,g \rangle \conj{\langle f,g \rangle}}{\conj{\langle g,g \rangle}} - \frac{\langle f,g \rangle \conj{\langle f,g \rangle}}{\conj{\langle g,g \rangle}} \\
+				&= 0
+		\end{split} \end{equation*}
+	
+	\item [4.2.5]
+	\begin{enumerate}[(a)]
+		\item Since the function $f(x) = x$ is an odd function, none of the cosine terms will contribute.
+			More specifically, $a_k = 0$ for all $k \in \mathbb{N}$.
+			Now we calculate the $b_k$.
+			\begin{equation*} \begin{split}
+				b_k &= \frac{1}{\pi} \int_{-\pi}^{\pi} x\sin(kx) dx \\
+					&= \frac{1}{\pi} \left(\left.-\frac{x}{k}\cos(kx)\right|_{-\pi}^{\pi} + \frac{1}{k}\int_{-\pi}^{\pi} \cos(kx) dx\right) \\
+					&= \frac{1}{\pi}\left(-\frac{\pi}{k}\cos(k\pi)-\frac{\pi}{k}\cos(-k\pi)+0\right) \\
+					&= 2\frac{(-1)^{k+1}}{k}
+			\end{split} \end{equation*}
+			Therefore, on $[-\pi,\pi]$, we have
+			$$ x = 2\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}\sin(nx) $$
+		\item Parsevals's identity states that $\norm{f}^2 = \sum_{n=1}^\infty |\langle f,f_n \rangle|^2$.
+			In part (a) we have shown
+			$$ |\langle f,f_n \rangle|^2 = \left|\frac{2(-1)^{n+1}}{n}\right|^2 = \frac{4}{n^2} $$
+			And we can calculate $\norm{f}^2$
+			$$ \norm{f}^2_2 = \int_{-\pi}^{\pi} x^2 dx = \left.\frac{x^3}{3}\right|_{-\pi}^{\pi} = \frac{2\pi^3}{3} $$
+			Thus
+			$$ \frac{2\pi^3}{3} = \sum_{n=1}^\infty \frac{4}{n^2} $$
+			which is equivalent to
+			$$ \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^3}{6} $$
+	\end{enumerate}
 
 \end{itemize}
 
