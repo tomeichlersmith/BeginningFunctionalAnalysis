@@ -76,6 +76,48 @@
 	\end{enumerate}
 	
 	\item [4.1.6]
+	
+	\item [4.2.1] Let $(V,\langle\cdot,\cdot\rangle)$ be an inner product space.
+	\begin{enumerate}[(a)]
+		\item Suppose $f,g \in V$ and that $f$ and $g$ are orthogonal ($\langle f,g \rangle = 0$).
+			Then we have
+			\begin{equation*} \begin{split} 
+				\norm{f+g}^2 &= \langle f+g,f+g \rangle \\
+					&= \langle f,f \rangle + \langle f,g \rangle + \langle g,f \rangle + \langle g,g \rangle \\
+					&= \langle f,f \rangle + \langle g,g \rangle \\
+					&= \norm{f}^2 + \norm{g}^2
+			\end{split} \end{equation*}
+		\item Assume that $\{f_k\}_{k=1}^\infty$ is an orthonormal sequence in $(V,\langle\cdot,\cdot\rangle)$.
+			Let $f \in V$ be given. \\
+			$(\Rightarrow)$ Suppose $\{f_k\}$ is complete.
+			Then we write $f = \sum_{k=1}^\infty \langle f,f_k \rangle f_k$.
+			Thus
+			\begin{equation*} \begin{split} 
+				\norm{f}^2 &= \norm{\sum_{k=1}^\infty \langle f,f_k \rangle f_k}^2 \\
+					&= \sum_{k=1}^\infty \norm{\langle f,f_k \rangle f_k}^2 \\
+					&= \sum_{k=1}^\infty |\langle f,f_k \rangle|^2 \norm{f_k}^2 \\
+					&= \sum_{k=1}^{\infty} |\langle f,f_k \rangle|^2
+			\end{split} \end{equation*}
+			$(\Leftarrow)$ Now suppose $\norm{f}^2 = \sum_{k=1}^\infty |\langle f,f_k \rangle|^2$.
+			Define $s_n = \sum_{k=1}^n \langle f,f_k \rangle f_k$.
+			Then, using the argument given in the proof of Theorem 4.2, we have $\norm{f-s_n}^2 + \norm{s_n}^2 = \norm{f}^2$.
+			Therefore
+			\begin{equation*} \begin{split} 
+				\lim_{n\to\infty} \norm{f-s_n}^2 &= \lim_{n\to\infty} \left(\norm{f}^2 - \norm{s_n}^2\right) \\
+					&= \norm{f}^2 - \lim_{n\to\infty} \sum_{k=1}^n |\langle f,f_k \rangle| \\
+					&= 0
+			\end{split} \end{equation*}
+			Thus we may write $f = \sum_{k=1}^\infty \langle f,f_k \rangle f_k$, showing that $\{f_k\}$ is complete.
+	\end{enumerate}
+	
+	\item [4.2.3] $\{f_1\}$ is linearly independent ($c_1f_1 = 0 \iff c_1 = 0$ when $f_1 \neq 0$). \\
+		Assume $\{f_i\}_{i=1}^{n-1}$ is linearly independent if it is orthonormal.
+		Then suppose $\{f_i\}_{i=1}^n$ is orthonormal.
+		Let $\sum_{i=1}^n c_if_i = 0$. Then
+		$$ \left\langle \sum_{i=1}^n c_i f_i , f_n \right\rangle = c_n $$
+		Thus $c_n$ must equal zero.
+		Therefore, $\sum_{i=1}^{n-1} c_if_i = 0$ which means all of the $c_i$ are zero (by assumption).
+		Thus $\{f_i\}_{i=1}^n$ is linearly independent (when orthonormal) for all $n$ by the Principle of Mathematical Induction.
 
 \end{itemize}
 
