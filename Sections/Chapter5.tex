@@ -42,7 +42,64 @@
 		$$ ST(a_1,a_2,a_3,\dots) = S(a_2,a_3,a_4,\dots) = (0,a_2,a_3,\dots) $$
 		which shows that $ST \neq I$, and since $T$ is not onto, it cannot have a left inverse.
 	
-	\item [5.2.1]
+	\item [5.2.1] Let $(X,\norm{\cdot}_X)$ and $(Y,\norm{\cdot}_Y)$ be normed linear spaces.
+		$\mathcal{B}(X,Y)$ is a linear space because if $\alpha,\beta \in \mathbb{C}$, $T,S \in \mathcal{B}(X,Y)$, and $x \in X$, then $T$ is bounded by some $M_T$ and $S$ by some $M_S$ and
+		$$ (\alpha T + \beta S)x = \alpha Tx + \beta Sx \leq \alpha M_T x + \beta M_S x $$
+		which means $\alpha T + \beta S \in \mathcal{B}(X,Y)$. \\
+		Define $\norm{\cdot}_\mathcal{B}:\mathcal{B}(X,Y)\to\R$ as
+		$$ \norm{T}_\mathcal{B} = \inf_{x\in X}\{M:\norm{Tx}_Y\leq M\norm{x}_X\} $$
+		Then let $S,T \in \mathcal{B}(X,Y)$ and $\lambda \in \mathbb{C}$
+		\begin{enumerate}[(i)]
+			\item $\norm{T}_\mathcal{B} \geq 0$ because $\norm{Tx}_Y \geq 0$ for all $x \in X$.
+			\item $\norm{T}_\mathcal{B} = 0$ if $\norm{Tx}_Y = 0$ for all $x$ where $\norm{x}_X \neq 0$.
+				In other words, $Tx = 0$ for all $x$ with non zero norm, so $T$ is the zero operator almost everywhere (everywhere except where $\norm{x}_X = 0$).
+			\item $\norm{\lambda T}_\mathcal{B} = \inf_{x\in X}\{M:\norm{\lambda Tx}_Y \leq M\norm{x}_X \}$ and we can pull out $\lambda$ because $\norm{\cdot}_Y$ is a norm. Thus $\norm{\lambda T}_\mathcal{B} = |\lambda|\inf_{x\in X}\{M:\norm{Tx}_Y \leq M\norm{x}_X \} = |\lambda|\norm{T}_\mathcal{B}$.
+			\item This follows from the fact that $\norm{\cdot}_Y$ is a norm and thus follows the triangle inequality as well.
+		\end{enumerate}
+		Thus $\mathcal{B}(X,Y)$ is a normed linear space.
+	
+	\item [5.2.2] First, define $I:(C([0,1]),\norm{\cdot}_\infty)\to(C([0,1]),\norm{\cdot}_1)$ as $If = f$.
+		Then
+		$$ \norm{f}_1 = \int_{[0,1]} f dm \leq \int_{[0,1]} \norm{f}_\infty dm = \norm{f}_\infty $$
+		Thus $\norm{If}_1 \leq 1\cdot\norm{f}_\infty$ which means $I$ is bounded. \\
+		Contrarily, define $I:(C([0,1]),\norm{\cdot}_1)\to(C([0,1]),\norm{\cdot}_\infty)$ the same way.
+		Then let $M \geq 1$ be given.
+		Define $f \in C([0,1])$ as
+		\begin{equation*}
+			f(x) = \begin{cases}
+				2M - 2M^2x & x \in [0,1/M] \\
+				0 & \text{otherwise}
+			\end{cases}
+		\end{equation*}
+		Then $\norm{f}_1 = 1$ and $\norm{f}_\infty = 2M$ which means $\norm{If}_\infty > M\norm{f}_1$.
+		Thus $I$ is unbounded.
+	
+	\item [5.2.4] Let $a = \{a_n\}_{n=1}^\infty \in \ell^\infty$. Define $T:\ell^1\to\mathbb{C}$ as
+		$$ Tx = \sum_{n=1}^\infty x_na_n $$
+		Then
+		\begin{equation*} \begin{split} 
+			|Tx| &= \left|\sum_{n=1}^\infty x_n a_n\right| \\
+				&\leq \sum_{n=1}^\infty |x_n a_n| \\
+				&\leq \sum_{n=1}^\infty |x_n|\norm{a}_\infty \\
+				&= \norm{a}_\infty \norm{x}_1
+		\end{split} \end{equation*}
+		Therefore $T$ is bounded.
+		Define $a = (1,0,0,0,\dots)$ and $x = (1,0,0,0,\dots)$. Then
+		$$ |Tx| = \left|\sum_{n=1}^\infty x_n a_n\right| = 1 = \norm{a}_\infty \norm{x}_1 $$
+		Therefore $\norm{T} = \norm{a}_\infty$.
+		
+	\item [5.2.7]
+	\begin{enumerate}[(a)]
+		\item Since a differentiable function is necessarily continuous, $C^1([0,1]) \subseteq C([0,1])$.
+			It is a subspace because the scalar multiplication of and the sum of two differentiable functions is a differentiable function.
+			Define $f_n(x) = x^n$ for all $n$. These $f_n$ are in $C^1([0,1])$ but there pointwise limit is not in $C^1([0,1])$ (or event in $C([0,1])$).
+		\item The differential operator is linear because if $\alpha,\beta \in \mathbb{C}$ and $f,g \in C^1([0,1])$ we have
+		$$ \frac{d}{dx}\left[\alpha f + \beta g\right] = \alpha \frac{df}{dx} + \beta \frac{dg}{dx} $$
+		However, define $g_n(x) = \sin(2\pi nx)$. Then $g_n \in C^([0,1])$ for all $n$ but
+		$$ \frac{dg_n}{dx} = 2\pi n\cos(2\pi nx) \Longrightarrow \norm{\frac{dg_n}{dx}}_\infty = 2\pi n $$
+		which is an unbounded sequence, so the differential operator is unbounded.
+	\end{enumerate}
+	
 \end{itemize}
 
 \end{document}
