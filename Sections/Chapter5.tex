@@ -3,7 +3,46 @@
 \begin{document}
 
 \begin{itemize}
-	\item [5.1.1]
+	\item [5.1.1] Let $H$ be a Hilbert space and $x_0 \in H$ be fixed.
+		Define $T:H\to\mathbb{C}$ as
+		$$ Tx = \langle x,x_0 \rangle $$
+		Suppose $\alpha,\beta \in \mathbb{C}$ and $x,y \in H$. Then
+		\begin{equation*} \begin{split} 
+			T(\alpha x + \beta y) &= \langle \alpha x + \beta y , x_0 \rangle \\
+				&= \langle \alpha x,x_0 \rangle + \langle \beta y, x_0 \rangle \\
+				&= \alpha \langle x,x_0 \rangle + \beta \langle y, x_0 \rangle \\
+				&= \alpha Tx + \beta Ty
+		\end{split} \end{equation*}
+		which shows that $T$ is a linear operator.
+	
+	\item [5.1.2] 
+	\begin{enumerate}[(a)]
+		\item Define $k:[0,b]\times[0,b]\to\mathbb{C}$ as
+			\begin{equation*}
+				k(s,t) = \begin{cases}
+					0 & t>s \\
+					\frac{1}{s} & t \leq s
+				\end{cases}
+			\end{equation*}
+			Then $T:C([0,b])\to C([0,b])$ is
+			$$ Tf(s) = \int_0^b k(s,t)f(t)dt = \int_0^s \frac{1}{s}f(t)dt = \frac{1}{s} \int_0^s f(t)dt $$
+		\item Define $T$ as in part (a).
+			Suppose $\alpha,\beta \in \mathbb{C}$ and $f,g \in C([0,b])$. Then
+			\begin{equation*} \begin{split} 
+				T(\alpha f + \beta g) &= \frac{1}{s} \int_0^s (\alpha f(t) + \beta g(t)) dt \\
+					&= \alpha \frac{1}{s} \int_0^s f(t) dt + \beta \frac{1}{s} \int_0^s g(t) dt \\
+					&= \alpha Tf + \beta Tg
+			\end{split} \end{equation*}
+	\end{enumerate}
+	
+	\item [5.1.3] Define the left shift $T:\ell^2\to\ell^2$ and right shift $S:\ell^2\to\ell^2$ as given in the text.
+		Then
+		$$ TS(a_1,a_2,a_3,\dots) = T(0,a_1,a_2,a_3,\dots) = (a_1,a_2,a_3,\dots) $$
+		which shows that $TS = I$; however,
+		$$ ST(a_1,a_2,a_3,\dots) = S(a_2,a_3,a_4,\dots) = (0,a_2,a_3,\dots) $$
+		which shows that $ST \neq I$, and since $T$ is not onto, it cannot have a left inverse.
+	
+	\item [5.2.1]
 \end{itemize}
 
 \end{document}
