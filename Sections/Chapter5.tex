@@ -100,6 +100,79 @@
 		which is an unbounded sequence, so the differential operator is unbounded.
 	\end{enumerate}
 	
+	\item [5.3.1] Let $X$ be a normed linear space and $S,T \in \mathcal{B}(X)$.
+	\begin{enumerate}[(a)]
+		\item Since $S \in \mathcal{B}(X)$, its norm is finite $\norm{S} < \infty$ and 
+			$$ \norm{Sx}_X \leq \norm{S}\norm{x}_X \qquad\text{for all } x\in X $$
+			Similarly, $ \norm{Tx}_X \leq \norm{T}\norm{x}_X$ for all $x \in X$.
+			Thus (since $Tx \in X$), we can conclude
+			$$ \norm{STx}_X \leq \norm{S}\norm{Tx}_X \leq \norm{S}\norm{T}\norm{x}_X \qquad\text{for all } x \in X $$
+			Thus, $\norm{ST} \leq \norm{S}\norm{T}$.
+		\item $ST$ is bounded by part (a), so $ST \in \mathcal{X}$.
+	\end{enumerate}
+	
+	\item [5.3.2] By Theorem 2.4, in metric spaces, compactness and sequential compactness are equivalent.
+		Therefore, let $\{y_n\}_{n=1}^\infty$ be an arbitrary sequence in $\conj{K(B)}$.
+		Then, for each $n$, there exists $x_n \in B$ such that $Kx_n = y_n$.
+		Since the sequence $\{x_n\}_{n=1}^\infty$ is a subset of $B$, it is bounded.
+		Since $K$ is a compact operator, the image of this bounded sequence has a convergent subsequence.
+		Thus $\{y_n\}_{n=1}^\infty$ has a convergent subsequence.
+		Therefore $\conj{K(B)}$ is sequentially compact (or equivalently, just compact).
+	
+	\item [5.3.3] Since $\mathcal{B}(X)$ is a unital Banach algebra, we are able to make the following string of equalities.
+		We multiply both sides by $U$ and then use associativity.
+		\begin{align*}
+			TV &= I \\
+			U(TV) &= UI \\
+			(UT)V &= U \\
+			IV &= U \\
+			V &= U
+		\end{align*}
+	
+	\item [5.3.4] In a unital normed algebra, the norm must be submultiplicative:
+		$$ \norm{ab} \leq \norm{a}\norm{b} \qquad\text{for all } a,b $$
+		Let $a$ be any nonzero element in the algebra and let $e$ be the unit.
+		Then
+		$$ \norm{ae} \leq \norm{a}\norm{e} $$
+		And since $ae = a$, $\norm{ae} = \norm{a}$, so
+		$$ \norm{a} \leq \norm{a}\norm{e} $$
+		Thus
+		$$ \norm{e} \geq 1 $$
+	
+	\item [5.3.5] This is a simple case of induction.
+		The base case is $k=1$:
+		$$ \norm{a^1} = \norm{a} = \norm{a}^1 $$
+		Now assume that $\norm{a^{k-1}} \leq \norm{a}^{k-1}$, then
+		$$ \norm{a^k} = \norm{a^{k-1}a} \leq \norm{a^{k-1}}\norm{a} \leq \norm{a}^{k-1}\norm{a} = \norm{a}^{k} $$
+		Thus, by the Principle of Mathematical Induction (and since $a$ was an arbitrary element in the algebra)
+		$$ \norm{a^k} \leq \norm{a}^k \qquad\text{for all } k\in\mathbb{N} \text{ and } a $$
+	
+	\item [5.3.6] $(C([0,1]),\norm{\cdot}_\infty)$ is a Banach space by Theorem 2.7.
+		Define pointwise multiplication to be the multiplication, then $C([0,1])$ is an algebra.
+		Let $f,g \in C([0,1])$. Then
+		$$ \norm{fg}_\infty = \sup_{x\in[0,1]}\{|f(x)g(x)|\} \leq \sup_{x\in[0,1]}\{|f(x)|\}\sup_{x\in[0,1]}\{|g(x)|\} = \norm{f}_\infty\norm{g}_\infty $$
+		which means $\norm{\cdot}_\infty$ is submultiplicative.
+		Finally, define $e:[0,1]\to\R$ as $e(x) = 1$. Then
+		$$ (fe)(x) = f(x)e(x) = f(x)1 = f(x) = 1f(x) = e(x)f(x) = (ef)(x) $$
+		which shows that $e$ is the unit. \\
+		Thus $(C([0,1]),\norm{\cdot}_\infty)$ is a unital Banach algebra.
+	
+	\item [5.3.7] Both $S$ and $T$ have inverses, so we can write
+		$$ T^{-1}(T-S)S^{-1} = T^{-1}TS^{-1} - T^{-1}SS^{-1} = S^{-1} - T^{-1} $$
+		Therefore $S^{-1} = T^{-1}(T-S)S^{-1} + T^{-1}$.
+		Using the triangle inequality and submultiplicativity, we can conclude
+		\begin{align*}
+			\norm{S^{-1}} &\leq \norm{T^{-1}(T-S)S^{-1}} + \norm{T^{-1}} \\
+				&\leq \norm{T^{-1}}\norm{T-S}\norm{S^{-1}} + \norm{T^{-1}}
+		\end{align*}
+		Then we can re-arrange the above inequality to obtain
+		\begin{equation*}
+			\norm{S^{-1}}\left(1-\norm{T^{-1}}\norm{T-S}\right) \leq \norm{T^{-1}}
+		\end{equation*}
+		Which proves our desired conclusion.
+	
+	\item [5.3.11]
+	
 \end{itemize}
 
 \end{document}
