@@ -171,7 +171,27 @@
 		\end{equation*}
 		Which proves our desired conclusion.
 	
-	\item [5.3.11]
+	\item [5.3.11] Suppose $T:X\to Y$ is not bounded.
+		Thus, there exists $\{x_n\}_{n=1}^\infty \subseteq X$ that is bounded, but $\{Tx_n\}_{n=1}^\infty$ is unbounded.
+		Since $\{Tx_n\}_{n=1}^\infty$ is unbounded, it cannot have a convergent subsequence.
+		Therefore, $T$ is not compact.
+	
+	\item [5.3.13] Let $\phi:[0,1]\to\R$ be continuous.
+		Define $M_\phi:L^2([0,1])\to L^2([0,1])$ as $(M_\phi f)(x) = \phi(x)f(x)$.
+		\begin{enumerate}[(a)]
+			\item Since $\phi$ is continuous on a compact interval, it attains a finite maximum $\norm{\phi}_\infty$ at some $x_0 \in [0,1]$.
+				Thus, for any $f \in L^2([0,1])$, we have
+				$$ \norm{M_\phi f}_2^2 = \int_{[0,1]} |\phi f|^2 dm \leq \norm{\phi}_\infty^2 \int_{[0,1]} |f|^2 dm = \norm{\phi}_\infty^2 \norm{f}_2^2 $$
+				which shows that $M_\phi$ is bounded and therefore $M_\phi \in \mathcal{B}\left(L^2([0,1])\right)$.
+				Let $0 < \epsilon < \norm{\phi}_\infty$ be given.
+				Define
+				$$ S_\epsilon = \{x : |\phi(x)| \geq \norm{\phi}_\infty-\epsilon\} $$
+				Then
+				$$ \norm{M_\phi \chi_{S_\epsilon}}_2^2 = \int_{[0,1]} |\phi \chi_{S_\epsilon}|^2 dm = \int_{S_\epsilon} |\phi|^2 dm \geq (\norm{\phi}_\infty - \epsilon)^2 \int_{S_\epsilon} dm = (\norm{\phi}_\infty - \epsilon)^2 \norm{\chi_{S_\epsilon}}_2^2 $$
+				Thus $\norm{M_\phi \chi_{S_\epsilon}}_2 \geq (\norm{\phi}_\infty - \epsilon)\norm{\chi_{S_\epsilon}}_2$ for arbitrarily small $\epsilon$.
+				We can then conclude that $\norm{M_\phi} = \norm{\phi}_\infty$.
+			\item 
+		\end{enumerate}
 	
 \end{itemize}
 
