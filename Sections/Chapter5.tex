@@ -190,8 +190,68 @@
 				$$ \norm{M_\phi \chi_{S_\epsilon}}_2^2 = \int_{[0,1]} |\phi \chi_{S_\epsilon}|^2 dm = \int_{S_\epsilon} |\phi|^2 dm \geq (\norm{\phi}_\infty - \epsilon)^2 \int_{S_\epsilon} dm = (\norm{\phi}_\infty - \epsilon)^2 \norm{\chi_{S_\epsilon}}_2^2 $$
 				Thus $\norm{M_\phi \chi_{S_\epsilon}}_2 \geq (\norm{\phi}_\infty - \epsilon)\norm{\chi_{S_\epsilon}}_2$ for arbitrarily small $\epsilon$.
 				We can then conclude that $\norm{M_\phi} = \norm{\phi}_\infty$.
-			\item 
+			\item Since $\lambda \not\in \phi([0,1])$, $\lambda-\phi(x) \neq 0$ for all $x \in [0,1]$.
+				Thus, the function $\mu:[0,1]\to\R$ defined by $\mu(x) = 1/(\lambda-\phi(x))$ is continuous on $[0,1]$.
+				Then, letting $f \in L^2([0,1])$ be given, we have
+				\begin{align*}
+					\norm{M_\mu f}_2^2 = \int_{[0,1]} \left|\mu f\right|^2 dm \leq \norm{\mu}_\infty^2 \norm{f}_2^2
+				\end{align*}
+				Thus $M_\mu = M_{(\lambda-\phi)^{-1}}$ is bounded.
+				Also,
+				\begin{align*}
+					(M_\mu (\lambda I-M_\phi) f)(x) = \mu(x) (\lambda f(x) - \phi(x) f(x)) = \frac{1}{\lambda - \phi(x)} (\lambda - \phi(x)) f(x) = f(x)
+				\end{align*}
+				Thus $M_\mu(\lambda I - M_\phi) = I$. Similarly, we find $(\lambda I - M_\phi)M_\mu = I$.
+				Therefore, $M_\mu$ is the inverse of $\lambda I - M_\phi$.
+			\item Any constant function has only eigenvalues (more precisely, eigenvalue) in its spectrum. Define $\phi:[0,1]\to\R$ as $\phi(x) = a$. Then $M_\phi f = af$ for all $f \in L^2([0,1])$ (so $a$ is an eigenvalue) and $\sigma(M_\phi) = \phi([0,1]) = \{a\}$. \\
+				Any non-constant function has no eigenvalues in its spectrum. Let $\psi:[0,1]\to\R$ be continuous and non-constant. Then for $(M_\psi f)(x) = \psi(x)f(x) = af(x)$ for some $a$ and for all $x \in [0,1]$, $f$ would have to be the zero function or $\psi(x) = a$ for all $x$. This contradicts the assumption that $\psi$ wasn't constant.
 		\end{enumerate}
+		
+	\item [5.4.1] \textit{Claim:} In $\mathbb{C}^n$, $A = (a_{ij})$ satisfies $a_{ij} = \conj{a_{ji}}$ for all $1 \leq i,j \leq n$ if and only if $\langle Ax,y \rangle = \langle x,Ay \rangle$ for all $x,y \in \mathbb{C}^n$. \\
+		\textit{Proof:} $(\Rightarrow)$ Assume that $A = (a_{ij})$ satisfies $a_{ij} = \conj{a_{ji}}$ for all $1 \leq i,j \leq n$. Let $x,y$ be given. Then
+		\begin{align*}
+			\langle Ax,y \rangle &= \sum_{j=1}^n \sum_{i=1}^n a_{ij}x_i\conj{y_j} \\
+				&= \sum_{i,j = 1}^n x_i \conj{\conj{a_{ij}}y_j} \\
+				&= \sum_{i,j = 1}^n x_i \conj{a_{ji}y_j} \\
+				&= \sum_{i=1}^n x_i \conj{\sum_{j=1}^n a_{ji}y_j} \\
+				&= \langle x,Ay \rangle
+		\end{align*}
+		$(\Leftarrow)$ Now assume that $\langle Ax,y \rangle = \langle x,Ay \rangle$ for all $x,y$. Let $x,y$ be given, then (using some of the above work)
+		\begin{align*}
+			\langle Ax,y \rangle &= \sum_{i,j = 1}^n x_i \conj{\conj{a_{ij}}y_j} \\
+				&= \sum_{i=1}^n x_i \conj{\sum_{j=1}^n \conj{a_{ij}}y_j} \\
+			\langle x,Ay \rangle &= \sum_{i=1}^n x_i \conj{\sum_{j=1}^n a_{ji}y_j}
+		\end{align*}
+		Thus, since $x$ and $y$ are arbitrary, we must have $\conj{a_{ij}} = a_{ji}$.
+	
+	\item [5.4.4] Let $y_1,y_2 \in K$ both be the ``closest" element in $K$ to $x$. That is
+		$$ \norm{x-y_1} = \inf\{ \norm{x-z} : z \in K \} = \norm{x-y_2} $$
+		Thus, since we are working in a Hilbert space,
+		$$ \norm{x-y_1} = \norm{x-y_2} \qquad\implies\qquad \langle x-y_1,x-y_1 \rangle = \langle x-y_2,x-y_2 \rangle $$
+		We can subtract the right hand side and obtain
+		$$ \langle y_2 - y_1,y_2 - y_1 \rangle = \norm{y_2 - y_1}^2 = 0 $$
+		which means $y_1 = y_2$.
+	
+	\item [5.4.6] Let $T \in \mathcal{B}(H)$ be Hermitian. Suppose $\lambda$ is an eigenvalue of $T$. Then $Tx = \lambda x$ for some $x \in H$ ($x \neq 0$). Then
+		\begin{align*}
+			\langle Tx,x \rangle &= \langle \lambda x,x \rangle = \lambda \langle x,x \rangle \\
+			\langle x,Tx \rangle &= \langle x,\lambda x \rangle = \conj{\lambda} \langle x,x \rangle
+		\end{align*}
+		Since $\langle Tx,x \rangle = \langle x,Tx \rangle$ and $\langle x,x \rangle \neq 0$, we can conclude that $\lambda = \conj{\lambda}$, which means $\lambda$ is real.
+	
+	\item [5.4.7]
+		\begin{enumerate}[(a)]
+			\item Let $\alpha\in[0,1]$ be given and let $f \in M_\alpha$. Then if $s \in [0,\alpha]$ we have
+				$$ (Tf)(s) = \int_{[0,s]} f dm = \int_{[0,s]} 0 dm = 0 $$
+				Thus $Tf \in M_\alpha$. Therefore $M_\alpha$ is an invariant subspace for $T$.
+			\item Define $N_\alpha = \{ g \in L^2([0,1]) : g(t) = 0 \text{ for all } t \in [\alpha,1] \}$.
+				Let $f \in M_\alpha$ and $g \in N_\alpha$ be given. Then
+				$$ \langle f,g \rangle = \int_{[0,1]} f\conj{g} dm = 0 $$
+				because $f$ is uniformly zero on $[0,\alpha]$ and $g$ is uniformly zero on $[\alpha,1]$.
+				Thus $N_\alpha$ is the orthogonal complement of $M_\alpha$.
+		\end{enumerate}
+		
+	\item [5.5.1]
 	
 \end{itemize}
 
