@@ -251,8 +251,18 @@
 				Thus $N_\alpha$ is the orthogonal complement of $M_\alpha$.
 		\end{enumerate}
 		
-	\item [5.5.1]
-	
+	\item [5.5.1] Let $K$ be a closed subspace of a Hilbert space $H$. Define $P:H\to H$ as $Px = y$ where $y \in K$ is the unique element in $K$ such that for some $z \in K^{\bot}$ we have $x = y+z$. \\
+		\textit{Bounded}: Let $x \in H$ be given. Then $x = y+z$ where $y\in K$ and $z \in K^{\bot}$, so $\langle y,z \rangle = 0$, which means (by Exercise 4.2.1) $\norm{y}^2+\norm{z}^2 = \norm{y+z}^2$. Thus
+		$$ \norm{Px}^2 = \norm{y}^2 \leq \norm{y}^2 + \norm{z}^2 = \norm{y+z}^2 = \norm{x}^2 $$
+		Therefore, $P$ is bounded (and actually, $\norm{P}_{\mathcal{B}(H)} = 1$). \\
+		\textit{Linear}: Let $x,w \in H$ and $a,b \in \mathbb{C}$ be given. Decompose $x$ and $w$ as $x=y_x+z_x$ and $w = y_w+z_w$ for $y_x,y_w \in K$ and $z_x,z_w \in K^{\bot}$. Since $K$ and $K^{\bot}$ are closed subspaces of $H$, we have $ay_x+by_w \in K$ and $az_x+bz_w \in K^{\bot}$. Thus we decompose $ax+bw$ as
+		$$ ax+bw = a(y_x+z_x)+b(y_w+z_w) = (ay_x+by_w)+(az_x+bz_w) $$
+		and since decompositions are unique, $ay_x+by_w$ is the image of $ax+bw$, so
+		$$ P(ax+bw) = ay_x+bz_w = aPx+bPw $$
+		which shows that $P$ is linear. \\
+		$\mathit{P^2=P}$: If $y \in K$, then its unique decomposition with respect to $K$ is $y = y+0$. Thus for all $y \in K$, $Py = y$. Since $Px \in K$ for all $x \in H$, we have
+		$$ P^2x = P(Px) = Px \qquad\text{for all } x \in H $$
+		
 \end{itemize}
 
 \end{document}
