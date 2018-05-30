@@ -1,8 +1,7 @@
 
-*.pdf
-*.aux
-*.log
-*.synctex.gz
+#Nothing in the bin except pdfs
+bin/*
+!bin/*.pdf
 
 #No dia creation files
 *.dia

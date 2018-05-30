@@ -19,12 +19,13 @@ all: $(PROJNAME).pdf
 # -pdf tells latexmk to generate PDF directly (instead of DVI).
 # -pdflatex="" tells latexmk to call a specific backend with specific options.
 # -use-make tells latexmk to call make for generating missing files.
+# -outdir sets the directory to put auxillary files in
 
 # -interactive=nonstopmode keeps the pdflatex backend from stopping at a
 # missing file reference and interactively asking you for an alternative.
 
 $(PROJNAME).pdf: $(PROJNAME).tex
-	latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode" -use-make $<
+	latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode" -outdir=bin -use-make $<
 
 # Remove all build files including .ps and .pdf files
 cleanall:
